@@ -3,18 +3,23 @@
   <section class="hero-banner">
     <img
       src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=400&q=80"
-      alt="Coleção Vibe Brasileira">
+      alt="Coleção Vibe Brasileira"
+    />
   </section>
 
   <section class="tiles-container">
     <div class="tile">
-      <img src="https://images.unsplash.com/photo-1582214983050-7053e18aef8e?auto=format&fit=crop&w=150&q=80"
-        alt="Biquínis">
+      <img
+        src="https://images.unsplash.com/photo-1582214983050-7053e18aef8e?auto=format&fit=crop&w=150&q=80"
+        alt="Biquínis"
+      />
       <span>Biquínis</span>
     </div>
     <div class="tile">
-      <img src="https://images.unsplash.com/photo-1564222256577-45e728f2c611?auto=format&fit=crop&w=150&q=80"
-        alt="Maiôs">
+      <img
+        src="https://images.unsplash.com/photo-1564222256577-45e728f2c611?auto=format&fit=crop&w=150&q=80"
+        alt="Maiôs"
+      />
       <span>Maiôs</span>
     </div>
   </section>
@@ -22,14 +27,16 @@
   <!-- Grade de Produtos -->
   <main class="product-grid">
     @for (product of products; track product.id) {
-    <div class="product-card">
-      <img [src]="product.image" [alt]="product.title" class="product-img">
-      <div class="product-info">
-        <div class="product-title">{{ product.title }}</div>
-        <div class="product-price">{{ product.price }}</div>
-        <a href="#" class="btn-purple">Ver Detalhes</a>
+      <div class="product-card">
+        <img [src]="product.image" [alt]="product.title" class="product-img" />
+        <div class="product-info">
+          <div class="product-title">{{ product.title }}</div>
+          <div class="product-price">{{ product.price }}</div>
+          <a href="#" class="btn-purple">Ver Detalhes</a>
+        </div>
       </div>
-    </div>
+    } @empty {
+      <p>Nenhum produto encontrado nesta categoria.</p>
     }
   </main>
 
