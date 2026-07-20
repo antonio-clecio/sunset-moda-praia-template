@@ -21,93 +21,16 @@
 
   <!-- Grade de Produtos -->
   <main class="product-grid">
-    <!-- Card 1 -->
+    @for (product of products; track product.id) {
     <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1621008018695-88544bbf63bb?auto=format&fit=crop&w=300&q=80" alt="Maiô"
-        class="product-img">
+      <img [src]="product.image" [alt]="product.title" class="product-img">
       <div class="product-info">
-        <div class="product-title">Maiô meia taça Brasil</div>
-        <div class="product-price">R$ 189,90</div>
+        <div class="product-title">{{ product.title }}</div>
+        <div class="product-price">{{ product.price }}</div>
         <a href="#" class="btn-purple">Ver Detalhes</a>
       </div>
     </div>
-
-    <!-- Card 2 -->
-    <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1600054800747-be294a6a0d26?auto=format&fit=crop&w=300&q=80"
-        alt="Saída" class="product-img">
-      <div class="product-info">
-        <div class="product-title">Saída midi nula manga preta</div>
-        <div class="product-price">R$ 199,90</div>
-        <a href="#" class="btn-purple">Ver Detalhes</a>
-      </div>
-    </div>
-
-    <!-- Card 3 -->
-    <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1574539602047-548bf955735d?auto=format&fit=crop&w=300&q=80" alt="Maiô"
-        class="product-img">
-      <div class="product-info">
-        <div class="product-title">Maiô engana mamãe torcido</div>
-        <div class="product-price">R$ 259,90</div>
-        <a href="#" class="btn-purple">Ver Detalhes</a>
-      </div>
-    </div>
-
-    <!-- Card 4 -->
-    <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1590574044161-0b5c1ab600ee?auto=format&fit=crop&w=300&q=80"
-        alt="Biquíni" class="product-img">
-      <div class="product-info">
-        <div class="product-title">Biquíni texturizado asa delta</div>
-        <div class="product-price">R$ 219,90</div>
-        <a href="#" class="btn-purple">Ver Detalhes</a>
-      </div>
-    </div>
-
-    <!-- Card 5 -->
-    <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1589139611599-73b0696b9948?auto=format&fit=crop&w=300&q=80"
-        alt="Maiô Verde" class="product-img">
-      <div class="product-info">
-        <div class="product-title">Maiô regata cavado nas costas</div>
-        <div class="product-price">R$ 229,90</div>
-        <a href="#" class="btn-purple">Ver Detalhes</a>
-      </div>
-    </div>
-
-    <!-- Card 6 -->
-    <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1518104593124-ac2eeb9a4ffe?auto=format&fit=crop&w=300&q=80"
-        alt="Maiô Preto" class="product-img">
-      <div class="product-info">
-        <div class="product-title">Maiô lese rendado cavado</div>
-        <div class="product-price">R$ 249,90</div>
-        <a href="#" class="btn-purple">Ver Detalhes</a>
-      </div>
-    </div>
-
-    <!-- Card 7 -->
-    <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1616124619460-ff4ed8f4683c?auto=format&fit=crop&w=300&q=80"
-        alt="Chemise" class="product-img">
-      <div class="product-info">
-        <div class="product-title">Chemise zebra M'Lev</div>
-        <div class="product-price">R$ 279,90</div>
-        <a href="#" class="btn-purple">Ver Detalhes</a>
-      </div>
-    </div>
-
-    <!-- Card 8 -->
-    <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1621619856624-42fd193a0661?auto=format&fit=crop&w=300&q=80"
-        alt="Biquíni Dourado" class="product-img">
-      <div class="product-info">
-        <div class="product-title">Biquíni meia taça tecido Premium</div>
-        <div class="product-price">R$ 259,90</div>
-        <a href="#" class="btn-purple">Ver Detalhes</a>
-      </div>
-    </div>
+    }
   </main>
 
   <div class="load-more-container">
