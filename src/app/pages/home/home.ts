@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Product } from '../../models/product';
@@ -11,7 +11,7 @@ import { Product } from '../../models/product';
   styleUrl: './home.css',
 })
 export class Home implements OnInit {
-  selectedCategory: string = 'all';
+  selectedCategory: string = 'todos';
 
   products: Product[] = [
     {
@@ -144,17 +144,22 @@ export class Home implements OnInit {
     },
   ];
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(
+    private route: ActivatedRoute,
+    private cdr: ChangeDetectorRef,
+  ) {}
 
   ngOnInit(): void {
     // Escuta as alterações na URL toda vez que o usuário clica em uma categoria do Header
     this.route.queryParams.subscribe((params) => {
-      this.selectedCategory = params['category'] || 'all';
+      this.selectedCategory = params['category'] || 'todos';
+
+      this.cdr.detectChanges();
     });
   }
 
   get filteredProducts() {
-    if (this.selectedCategory === 'all') {
+    if (this.selectedCategory === 'todos') {
       return this.products;
     }
     return this.products.filter((p) => p.category === this.selectedCategory);
