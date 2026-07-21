@@ -155,3 +155,238 @@
   margin: 0 auto;
   padding: 0 15px;
 }
+
+/* --- ESTILOS DO MODAL --- */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  padding: 1rem;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.modal-card {
+  background: #ffffff;
+  border-radius: 16px;
+  max-width: 750px;
+  width: 100%;
+  position: relative;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  animation: slideUp 0.25s ease-out;
+}
+
+.close-btn {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  color: #666;
+  cursor: pointer;
+  z-index: 10;
+  transition: color 0.2s;
+}
+
+.close-btn:hover {
+  color: #000;
+}
+
+.modal-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  padding: 1.5rem;
+}
+
+.modal-image-container img {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.modal-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.modal-badge {
+  display: inline-block;
+  background: #f0f0f0;
+  color: #666;
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 6px;
+  width: fit-content;
+  margin-bottom: 0.5rem;
+}
+
+.modal-details h2 {
+  font-size: 1.5rem;
+  color: #222;
+  margin: 0 0 0.5rem 0;
+}
+
+.modal-price {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #2563eb; /* Ou a cor de destaque do seu projeto */
+  margin-bottom: 1rem;
+}
+
+.modal-description {
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.4;
+  margin-bottom: 1.2rem;
+  white-space: pre-line;
+}
+
+.modal-sizes {
+  margin-bottom: 1.5rem;
+}
+
+.modal-sizes span {
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: #444;
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.size-tags {
+  display: flex;
+  gap: 8px;
+}
+
+.size-tags .tag {
+  border: 1px solid #ddd;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.btn-whatsapp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: #25d366;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 0.8rem 1.2rem;
+  border-radius: 8px;
+  transition:
+    background-color 0.2s,
+    transform 0.1s;
+}
+
+.btn-whatsapp:hover {
+  background-color: #1ebc57;
+  transform: translateY(-1px);
+}
+
+/* Animações */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Responsividade para Celulares */
+@media (max-width: 640px) {
+  .modal-body {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+
+  .modal-image-container img {
+    height: 250px;
+  }
+}
+
+/* --- ESTILOS DA GALERIA DO MODAL --- */
+.modal-gallery-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.modal-main-image img {
+  width: 100%;
+  height: 380px; /* Mantendo a altura anterior ou ajuste conforme necessário */
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transition: opacity 0.2s ease;
+}
+
+.modal-thumbnails {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  overflow-x: auto; /* Permite scroll horizontal se houver muitas fotos no celular */
+  padding-bottom: 5px;
+}
+
+.modal-thumb-img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: transform 0.2s, border-color 0.2s;
+  opacity: 0.6;
+}
+
+.modal-thumb-img:hover {
+  transform: translateY(-2px);
+  opacity: 1;
+}
+
+/* Destaque para a miniatura da imagem que está passando no momento */
+.modal-thumb-img.active {
+  border-color: #2563eb; /* Cor de destaque (azul/roxo do seu projeto) */
+  opacity: 1;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+}
+
+/* Responsividade para Celulares (ajuste a altura da imagem principal) */
+@media (max-width: 640px) {
+  .modal-main-image img {
+    height: 280px;
+  }
+  .modal-thumb-img {
+    width: 50px;
+    height: 50px;
+  }
+}

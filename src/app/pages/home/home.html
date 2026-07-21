@@ -28,17 +28,81 @@
   <main class="product-grid">
     @for (product of filteredProducts; track product.id) {
       <div class="product-card">
-        <img [src]="product.image" [alt]="product.title" class="product-img" />
+        <img [src]="product.images[0]" [alt]="product.title" class="product-img" />
         <div class="product-info">
           <div class="product-title">{{ product.title }}</div>
           <div class="product-price">{{ product.price }}</div>
-          <a href="#" class="btn-purple">Ver Detalhes</a>
+          <button (click)="openModal(product)" class="btn-purple">Ver Detalhes</button>
         </div>
       </div>
     } @empty {
       <p>Nenhum produto encontrado nesta categoria.</p>
     }
   </main>
+
+  <!-- MODAL DE DETALHES DO PRODUTO -->
+  @if (selectedProduct) {
+    <div class="modal-overlay" (click)="closeModal()">
+      <div class="modal-card" (click)="$event.stopPropagation()">
+        <button class="close-btn" (click)="closeModal()">&times;</button>
+
+        <div class="modal-body">
+          <!-- <div class="modal-image-container">
+            <img [src]="selectedProduct.image" [alt]="selectedProduct.title" />
+          </div> -->
+          <div class="modal-gallery-container">
+            <!-- Imagem Principal Grande -->
+            <div class="modal-main-image">
+              <img
+                [src]="selectedProduct.images[currentModalImageIndex]"
+                [alt]="selectedProduct.title"
+              />
+            </div>
+
+            <!-- Fileira de Miniaturas (Thumbnails) -->
+            <div class="modal-thumbnails">
+              @for (imgUrl of selectedProduct.images; track $index) {
+                <img
+                  [src]="imgUrl"
+                  [alt]="'Miniatura ' + ($index + 1)"
+                  class="modal-thumb-img"
+                  [class.active]="$index === currentModalImageIndex"
+                  (click)="setModalImage($index)"
+                />
+              }
+            </div>
+          </div>
+
+          <div class="modal-details">
+            <span class="modal-badge">{{ selectedProduct.category | uppercase }}</span>
+            <h2>{{ selectedProduct.title }}</h2>
+            <p class="modal-price">{{ selectedProduct.price }}</p>
+
+            <p class="modal-description">
+              {{
+                selectedProduct.description ||
+                  'Produto confeccionado com tecido de alta qualidade, garantindo conforto e excelente caimento.'
+              }}
+            </p>
+
+            <div class="modal-sizes">
+              <span>Tamanhos:</span>
+              <div class="size-tags">
+                <span class="tag">P</span>
+                <span class="tag">M</span>
+                <span class="tag">G</span>
+                <span class="tag">GG</span>
+              </div>
+            </div>
+
+            <a [href]="getWhatsAppLink(selectedProduct)" target="_blank" class="btn-whatsapp">
+              <i class="fab fa-whatsapp"></i> Comprar via WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  }
 
   <div class="load-more-container">
     <button class="btn-load-more">Ver produtos</button>
