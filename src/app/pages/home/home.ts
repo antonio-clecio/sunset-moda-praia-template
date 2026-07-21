@@ -12,6 +12,7 @@ import { Product } from '../../models/product';
 })
 export class Home implements OnInit {
   selectedCategory: string = 'todos';
+  searchTerm: string = '';
 
   products: Product[] = [
     {
@@ -150,18 +151,29 @@ export class Home implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // Escuta as alterações na URL toda vez que o usuário clica em uma categoria do Header
     this.route.queryParams.subscribe((params) => {
       this.selectedCategory = params['category'] || 'todos';
+      this.searchTerm = params['search'] || '';
 
       this.cdr.detectChanges();
     });
   }
 
+  private removeAccents(str: string): string {
+    return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  }
+
   get filteredProducts() {
-    if (this.selectedCategory === 'todos') {
-      return this.products;
-    }
-    return this.products.filter((p) => p.category === this.selectedCategory);
+    return this.products.filter((product) => {
+      const matchesCategory =
+        this.selectedCategory === 'todos' || product.category === this.selectedCategory;
+
+      const normalizedTitle = this.removeAccents(product.title.toLowerCase());
+      const normalizedSearch = this.removeAccents(this.searchTerm.toLowerCase().trim());
+
+      const matchesSearch = normalizedTitle.includes(normalizedSearch);
+
+      return matchesCategory && matchesSearch;
+    });
   }
 }

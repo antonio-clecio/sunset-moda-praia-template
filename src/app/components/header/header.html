@@ -2,7 +2,7 @@
   <header>
     <div class="header-grid">
       <div class="search-box">
-        <input type="text" placeholder="Buscar produto">
+        <input type="text" placeholder="Buscar produto" (input)="onSearch($event)" />
         <i class="fas fa-search"></i>
       </div>
       <div class="logo">
