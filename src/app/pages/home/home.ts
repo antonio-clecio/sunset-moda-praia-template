@@ -19,6 +19,8 @@ export class Home implements OnInit {
 
   currentModalImageIndex = 0;
 
+  visibleCount: number = 8;
+
   products: Product[] = [
     {
       id: 1,
@@ -289,6 +291,8 @@ export class Home implements OnInit {
       this.selectedCategory = params['category'] || 'todos';
       this.searchTerm = params['search'] || '';
 
+      this.visibleCount = 8;
+
       this.cdr.detectChanges();
     });
   }
@@ -331,5 +335,14 @@ export class Home implements OnInit {
 
       return matchesCategory && matchesSearch;
     });
+  }
+
+  get displayedProducts(): Product[] {
+    return this.filteredProducts.slice(0, this.visibleCount);
+  }
+
+  // Aumenta em +8 os produtos visíveis ao clicar no botão
+  loadMore(): void {
+    this.visibleCount += 8;
   }
 }
