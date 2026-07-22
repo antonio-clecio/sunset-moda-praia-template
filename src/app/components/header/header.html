@@ -2,7 +2,13 @@
   <header>
     <div class="header-grid">
       <div class="search-box">
-        <input type="text" placeholder="Buscar produto" (input)="onSearch($event)" />
+        <!-- 1. [value]="searchTerm" adicionado para limpar o input via código -->
+        <input
+          type="text"
+          placeholder="O que você procura?"
+          [value]="searchTerm"
+          (input)="onSearch($event)"
+        />
         <i class="fas fa-search"></i>
       </div>
       <div class="logo">
@@ -12,15 +18,71 @@
       <div><!-- Espaço vazio à direita conforme referência --></div>
     </div>
 
+    <!-- 2. Sem o queryParamsHandling="merge" nos links do menu -->
     <nav class="main-nav">
-      <a [routerLink]="['/']" [queryParams]="{ category: 'todos' }">Todos</a>
-      <a [routerLink]="['/']" [queryParams]="{ category: 'biquini' }">Biquini</a>
-      <a [routerLink]="['/']" [queryParams]="{ category: 'maio' }">Maiô</a>
-      <a [routerLink]="['/']" [queryParams]="{ category: 'saida' }">Saída de Praia</a>
-      <a [routerLink]="['/']" [queryParams]="{ category: 'conjunto' }">Conjunto Fitness</a>
-      <a [routerLink]="['/']" [queryParams]="{ category: 'macacao' }">Macacão</a>
-      <a [routerLink]="['/']" [queryParams]="{ category: 'jaqueta' }">Jaqueta</a>
-      <a [routerLink]="['/']" [queryParams]="{ category: 'blusa' }">Blusa</a>
+      <a
+        [routerLink]="['/']"
+        [queryParams]="{ category: 'todos' }"
+        [class.active]="selectedCategory === 'todos'"
+      >
+        Todos
+      </a>
+
+      <a
+        [routerLink]="['/']"
+        [queryParams]="{ category: 'biquini' }"
+        [class.active]="selectedCategory === 'biquini'"
+      >
+        Biquini
+      </a>
+
+      <a
+        [routerLink]="['/']"
+        [queryParams]="{ category: 'maio' }"
+        [class.active]="selectedCategory === 'maio'"
+      >
+        Maiô
+      </a>
+
+      <a
+        [routerLink]="['/']"
+        [queryParams]="{ category: 'saida' }"
+        [class.active]="selectedCategory === 'saida'"
+      >
+        Saída de Praia
+      </a>
+
+      <a
+        [routerLink]="['/']"
+        [queryParams]="{ category: 'conjunto' }"
+        [class.active]="selectedCategory === 'conjunto'"
+      >
+        Conjunto Fitness
+      </a>
+
+      <a
+        [routerLink]="['/']"
+        [queryParams]="{ category: 'macacao' }"
+        [class.active]="selectedCategory === 'macacao'"
+      >
+        Macacão
+      </a>
+
+      <a
+        [routerLink]="['/']"
+        [queryParams]="{ category: 'jaqueta' }"
+        [class.active]="selectedCategory === 'jaqueta'"
+      >
+        Jaqueta
+      </a>
+
+      <a
+        [routerLink]="['/']"
+        [queryParams]="{ category: 'blusa' }"
+        [class.active]="selectedCategory === 'blusa'"
+      >
+        Blusa
+      </a>
     </nav>
   </header>
 </div>

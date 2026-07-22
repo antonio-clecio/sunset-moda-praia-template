@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { Router, RouterLink } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Router, RouterLink, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -8,15 +8,31 @@ import { Router, RouterLink } from '@angular/router';
   templateUrl: './header.html',
   styleUrl: './header.css',
 })
-export class Header {
-  constructor(private router: Router) {}
+export class Header implements OnInit {
+  selectedCategory: string = 'todos';
+  searchTerm: string = ''; // 👈 Guarda e sincroniza o texto do input
+
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+  ) {}
+
+  ngOnInit(): void {
+    // Escuta a URL: se a busca sumir da URL, limpa o campo de texto automaticamente
+    this.route.queryParams.subscribe((params) => {
+      this.selectedCategory = params['category'] || 'todos';
+      this.searchTerm = params['search'] || '';
+    });
+  }
 
   onSearch(event: Event): void {
     const value = (event.target as HTMLInputElement).value;
 
     this.router.navigate([], {
-      queryParams: { search: value ? value : null }, // Se estiver vazio, remove o parâmetro da URL
-      queryParamsHandling: 'merge', // Preserva o parâmetro de categoria se já existir
+      queryParams: {
+        search: value ? value : null,
+        category: value ? 'todos' : this.selectedCategory,
+      },
     });
   }
 }
