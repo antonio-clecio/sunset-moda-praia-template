@@ -1,4 +1,4 @@
-/* Cabeçalho */
+/* Cabeçalho Base (Desktop) */
 header {
   padding: 30px 0 20px;
 }
@@ -66,29 +66,82 @@ header {
   color: #222;
 }
 
-/* Estilo base de cada link do menu */
 .main-nav a {
   text-decoration: none;
   color: #222;
   padding-bottom: 4px;
-  position: relative;
-  transition: color 0.2s ease, border-color 0.2s ease;
-  border-bottom: 2px solid transparent; /* Reserva o espaço da linha para não "pular" ao ativar */
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
+  border-bottom: 2px solid transparent;
 }
 
 .main-nav a:hover {
   color: #179e9f;
 }
 
-/* Item selecionado/ativo no momento */
 .main-nav a.active {
   color: #179e9f;
   font-weight: 700;
-  border-bottom: 2px solid #179e9f; /* Linha de destaque abaixo da categoria ativa */
+  border-bottom: 2px solid #179e9f;
 }
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 15px;
+}
+
+/* --- RESPONSIVIDADE PARA CELULARES (HEADER) --- */
+@media (max-width: 768px) {
+  header {
+    padding: 15px 0 10px;
+  }
+
+  /* Muda o layout de grid (3 colunas) para flex alinhado na vertical */
+  .header-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  /* Esconde a div vazia da direita no celular */
+  .header-grid > div:last-child {
+    display: none;
+  }
+
+  /* Coloca a Logo em 1º lugar */
+  .logo {
+    order: 1;
+  }
+
+  /* Coloca a Busca em 2º lugar (abaixo da logo) e centralizada */
+  .search-box {
+    order: 2;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  /* Torna o menu de categorias rolável lateralmente no celular */
+  .main-nav {
+    justify-content: flex-start;
+    overflow-x: auto;
+    white-space: nowrap;
+    flex-wrap: nowrap;
+    padding: 12px 0;
+    margin-top: 15px;
+    gap: 15px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .main-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .main-nav a {
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
 }
