@@ -22,6 +22,7 @@ header {
   font-size: 13px;
   outline: none;
 }
+
 .search-box input::placeholder {
   color: #999;
 }
@@ -53,17 +54,68 @@ header {
   margin-top: -5px;
 }
 
-/* Menu Simples */
+/* --- ENVOLTÓRIO CENTRALIZADO COM SETA GRADIENTE --- */
+.scroll-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 100%;
+  margin: 20px auto 0 auto; /* Centraliza o bloco do menu na página */
+}
+
+/* --- SETA OVERLAY COM GRADIENTE FADE (SEM BORDAS/CAIXAS) --- */
+.scroll-btn-overlay {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 60px; /* Largura da transição suave */
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #ffffff 75%);
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 4px;
+  cursor: pointer;
+  z-index: 10;
+  color: #111111;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.scroll-btn-overlay:hover {
+  color: #179e9f;
+  transform: translateX(2px);
+}
+
+.scroll-btn-overlay svg {
+  display: block;
+}
+
+/* --- MENU PRINCIPAL (LINHA ÚNICA ROLÁVEL) --- */
 .main-nav {
   display: flex;
-  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap !important; /* Força ficar tudo na mesma linha */
   gap: 25px;
-  padding: 20px 0;
+  padding: 10px 50px 10px 0; /* Espaço na direita para a seta não cobrir o último link */
   font-size: 12px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   color: #222;
+  overflow-x: auto;
+  white-space: nowrap;
+  scroll-behavior: smooth;
+  scrollbar-width: none; /* Firefox */
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+}
+
+.main-nav::-webkit-scrollbar {
+  display: none; /* Chrome, Safari e Edge */
 }
 
 .main-nav a {
@@ -74,6 +126,8 @@ header {
     color 0.2s ease,
     border-color 0.2s ease;
   border-bottom: 2px solid transparent;
+  flex-shrink: 0; /* Impede que os nomes dos links dobrem ou encolham */
+  white-space: nowrap;
 }
 
 .main-nav a:hover {
@@ -98,7 +152,6 @@ header {
     padding: 15px 0 10px;
   }
 
-  /* Muda o layout de grid (3 colunas) para flex alinhado na vertical */
   .header-grid {
     display: flex;
     flex-direction: column;
@@ -106,42 +159,37 @@ header {
     gap: 15px;
   }
 
-  /* Esconde a div vazia da direita no celular */
   .header-grid > div:last-child {
     display: none;
   }
 
-  /* Coloca a Logo em 1º lugar */
   .logo {
     order: 1;
   }
 
-  /* Coloca a Busca em 2º lugar (abaixo da logo) e centralizada */
   .search-box {
     order: 2;
     max-width: 100%;
     width: 100%;
   }
 
-  /* Torna o menu de categorias rolável lateralmente no celular */
+  /* No celular, o container do menu ocupa toda a largura */
+  .scroll-wrapper {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .scroll-btn-overlay {
+    width: 40px;
+  }
+
+  .scroll-btn-overlay svg {
+    width: 16px;
+    height: 16px;
+  }
+
   .main-nav {
-    justify-content: flex-start;
-    overflow-x: auto;
-    white-space: nowrap;
-    flex-wrap: nowrap;
-    padding: 12px 0;
-    margin-top: 15px;
     gap: 15px;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none; /* Firefox */
-  }
-
-  .main-nav::-webkit-scrollbar {
-    display: none;
-  }
-
-  .main-nav a {
-    flex-shrink: 0;
-    white-space: nowrap;
+    padding: 8px 40px 8px 0;
   }
 }

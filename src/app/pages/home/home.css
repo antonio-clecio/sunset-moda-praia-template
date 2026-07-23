@@ -1,46 +1,67 @@
-/* Menu Simples */
-.main-nav {
-  display: flex;
-  justify-content: center;
-  gap: 25px;
-  padding: 20px 0;
-  font-size: 12px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  color: #222;
-}
-.main-nav a:hover {
-  color: #179e9f;
-}
-
-/* Banners (Hero) */
+/* --- BANNERS (HERO) --- */
 .hero-banner {
   margin-bottom: 20px;
   border-radius: 8px;
   overflow: hidden;
 }
+
 .hero-banner img {
   width: 100%;
   display: block;
   object-fit: cover;
 }
 
-/* --- CATEGORIAS EM CÍRCULO (ESTILO STORIES) --- */
+/* --- CATEGORIAS EM CÍRCULO (STORIES COM SETAS) --- */
+.stories-scroll-wrapper {
+  position: relative;
+  width: 100%;
+  margin: 25px 0 35px 0;
+}
+
+/* Seta Minimalista com Degradê (Estilo PlayStation/Referência) */
+.stories-scroll-wrapper .scroll-btn.right {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 50px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #ffffff 75%);
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 5px;
+  cursor: pointer;
+  z-index: 10;
+  color: #111111;
+  font-size: 16px;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.stories-scroll-wrapper .scroll-btn.right:hover {
+  color: #179e9f;
+  transform: translateX(2px);
+}
+
+/* Container Rolável dos Círculos */
 .categories-circle-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: nowrap !important;
   gap: 30px;
-  margin: 35px 0 45px;
   overflow-x: auto;
-  padding: 10px 5px;
+  padding: 10px 60px 10px 5px; /* Espaço extra na direita para o gradiente da seta */
+  scroll-behavior: smooth;
+  scrollbar-width: none; /* Firefox */
   -webkit-overflow-scrolling: touch;
-  scrollbar-width: none; /* Esconde barra de rolagem no Firefox */
+  width: 100%;
 }
 
 .categories-circle-container::-webkit-scrollbar {
-  display: none; /* Esconde barra de rolagem no Chrome/Safari */
+  display: none; /* Chrome, Safari e Edge */
 }
 
 .category-circle-item {
@@ -62,9 +83,9 @@
   height: 95px;
   border-radius: 50%;
   overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   border: 2px solid #ffffff;
-  outline: 2px solid #e0e0e0; /* Borda externa sutil */
+  outline: 2px solid #e0e0e0;
 }
 
 .circle-img-wrapper img {
@@ -79,9 +100,40 @@
   font-weight: 600;
   color: #333333;
   text-align: center;
+  white-space: nowrap;
 }
 
-/* Grade de Produtos (Desktop: 4 colunas) */
+/* --- SETA OVERLAY COM GRADIENTE FADE (SEM BORDAS/CAIXAS) --- */
+.scroll-btn-overlay {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 70px; /* Extensão do gradiente sobre o conteúdo */
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #ffffff 75%);
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 4px;
+  cursor: pointer;
+  z-index: 10;
+  color: #111111;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.scroll-btn-overlay:hover {
+  color: #179e9f;
+  transform: translateX(2px);
+}
+
+.scroll-btn-overlay svg {
+  display: block;
+}
+
+/* --- GRADE DE PRODUTOS (DESKTOP: 4 COLUNAS) --- */
 .product-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -100,6 +152,7 @@
   transition: transform 0.2s;
   padding-bottom: 20px;
 }
+
 .product-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -118,12 +171,14 @@
   display: flex;
   flex-direction: column;
 }
+
 .product-title {
   font-size: 13px;
   color: #555;
   margin-bottom: 8px;
   line-height: 1.4;
 }
+
 .product-price {
   font-size: 16px;
   font-weight: 700;
@@ -146,7 +201,9 @@
   width: 90%;
   margin-left: auto;
   margin-right: auto;
+  text-decoration: none;
 }
+
 .btn-purple:hover {
   background-color: #2a0054;
 }
@@ -156,6 +213,7 @@
   text-align: center;
   margin-bottom: 60px;
 }
+
 .btn-load-more {
   background-color: #3e007c;
   color: #fff;
@@ -167,6 +225,7 @@
   cursor: pointer;
   transition: background 0.2s;
 }
+
 .btn-load-more:hover {
   background-color: #2a0054;
 }
@@ -321,7 +380,7 @@
   transform: translateY(-1px);
 }
 
-/* --- ESTILOS DA GALERIA DO MODAL --- */
+/* GALERIA DO MODAL */
 .modal-gallery-container {
   display: flex;
   flex-direction: column;
@@ -420,11 +479,19 @@
     width: 100%;
   }
 
-  /* Categorias em Círculo no celular (Rolagem lateral fluida) */
+  /* Stories no Celular */
+  .stories-scroll-wrapper {
+    margin: 15px 0 25px 0;
+    gap: 6px;
+  }
+
+  .stories-scroll-wrapper .scroll-btn.right {
+    width: 35px;
+    font-size: 13px;
+  }
+
   .categories-circle-container {
-    justify-content: flex-start;
-    gap: 20px;
-    margin: 20px 0 30px;
+    gap: 18px;
   }
 
   .circle-img-wrapper {
@@ -436,7 +503,7 @@
     font-size: 12px;
   }
 
-  /* Ajustes do Modal no celular */
+  /* Modal no celular */
   .modal-body {
     grid-template-columns: 1fr;
     padding: 1rem;
