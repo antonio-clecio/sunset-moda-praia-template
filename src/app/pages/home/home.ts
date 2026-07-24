@@ -1,5 +1,5 @@
 import { Component, OnInit, ChangeDetectorRef, inject } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router'; // 👈 'Router' adicionado
+import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Product } from '../../models/product';
 import { ProductService } from '../../service/product.service';
@@ -14,7 +14,7 @@ import { ProductService } from '../../service/product.service';
 export class Home implements OnInit {
   // Injeção de dependências
   private route = inject(ActivatedRoute);
-  private router = inject(Router); // 👈 Router injetado aqui
+  private router = inject(Router);
   private cdr = inject(ChangeDetectorRef);
   private productService = inject(ProductService);
 
@@ -28,6 +28,10 @@ export class Home implements OnInit {
   selectedCategory: string = 'todos';
   searchTerm: string = '';
 
+  // 🔴 NOVO: Estado de seleção exclusivo visual para os Stories
+  selectedStoryCategory: string = '';
+  private isStoryClick: boolean = false; // Flag para identificar a origem do clique
+
   ngOnInit(): void {
     // Carrega os produtos do Service
     this.products = this.productService.getProducts();
@@ -37,18 +41,31 @@ export class Home implements OnInit {
       this.selectedCategory = params['category'] || 'todos';
       this.searchTerm = params['search'] || '';
       this.visibleCount = 8; // Reseta a paginação ao mudar filtro
+
+      // 🔴 NOVO: Se a mudança na URL NÃO veio de um clique no Story (ex: veio do Header),
+      // limpamos o destaque visual do Story
+      if (!this.isStoryClick) {
+        this.selectedStoryCategory = '';
+      }
+      this.isStoryClick = false; // Reseta a flag para o próximo evento
+
       this.cdr.detectChanges();
     });
   }
 
-  // 👈 Método para selecionar categoria ao clicar no Story
+  // 🔴 ATUALIZADO: Método chamado ao clicar em um Story
   selectCategory(categorySlug: string): void {
+    this.isStoryClick = true; // Avisa que o clique veio do Story
+
+    // Alterna a seleção visual exclusiva do Story
+    this.selectedStoryCategory = this.selectedStoryCategory === categorySlug ? '' : categorySlug;
+
     // Se clicar na categoria já ativa, volta para 'todos'
     const targetCategory = this.selectedCategory === categorySlug ? 'todos' : categorySlug;
 
     this.router.navigate([], {
       relativeTo: this.route,
-      queryParams: { category: targetCategory },
+      queryParams: { category: targetCategory, search: null }, // Remove o termo de busca da url
       queryParamsHandling: 'merge', // Mantém a busca textual caso exista
     });
   }

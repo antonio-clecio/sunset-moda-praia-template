@@ -219,7 +219,7 @@ export class ProductService {
         Modelagem que veste super bem, tecido confortável e aquele caimento perfeito para treinar ou montar looks estilosos no dia a dia.`,
     },
     {
-      id: 13,
+      id: 14,
       title: 'Conjunto Bicolor',
       price: 'R$ 89,99',
       images: [
@@ -234,7 +234,7 @@ export class ProductService {
         A calça e o cropped possuem detalhes bicolor, uma tendência que está super em alta e deixa a peça ainda mais moderna e estilosa. 😍`,
     },
     {
-      id: 14,
+      id: 15,
       title: 'Conjunto Lis',
       price: 'R$ 74,99',
       images: [
@@ -249,7 +249,7 @@ export class ProductService {
         O cropped conta com bojo e uma linda abertura nas costas, deixando o look ainda mais moderno. Um conjunto que veste super bem e valoriza o corpo com muito conforto.`,
     },
     {
-      id: 15,
+      id: 16,
       title: 'Conjunto Bicolor',
       price: 'R$ 69,99',
       images: [
