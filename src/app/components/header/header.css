@@ -54,28 +54,28 @@ header {
   margin-top: -5px;
 }
 
-/* --- ENVOLTÓRIO CENTRALIZADO COM SETA GRADIENTE --- */
+/* --- ENVOLTÓRIO CENTRALIZADO --- */
 .scroll-wrapper {
   position: relative;
   display: flex;
   align-items: center;
+  justify-content: center;
   width: 100%;
-  max-width: 100%;
-  margin: 20px auto 0 auto; /* Centraliza o bloco do menu na página */
+  margin: 20px auto 0 auto;
 }
 
-/* --- SETA OVERLAY COM GRADIENTE FADE (SEM BORDAS/CAIXAS) --- */
+/* --- SETA OVERLAY (Oculta no Desktop por padrão) --- */
 .scroll-btn-overlay {
+  display: none; /* No desktop não exibe a seta */
   position: absolute;
   right: 0;
   top: 0;
   bottom: 0;
-  width: 60px; /* Largura da transição suave */
+  width: 60px;
   background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #ffffff 75%);
   border: none !important;
   outline: none !important;
   box-shadow: none !important;
-  display: flex;
   align-items: center;
   justify-content: flex-end;
   padding-right: 4px;
@@ -92,15 +92,17 @@ header {
 
 .scroll-btn-overlay svg {
   display: block;
+  width: 26px;
+  height: 26px;
 }
 
-/* --- MENU PRINCIPAL (LINHA ÚNICA ROLÁVEL) --- */
+/* --- MENU PRINCIPAL (CENTRALIZADO NO DESKTOP) --- */
 .main-nav {
   display: flex;
   align-items: center;
-  flex-wrap: nowrap !important; /* Força ficar tudo na mesma linha */
+  justify-content: center; /* Centralização perfeita no Desktop */
+  flex-wrap: nowrap !important;
   gap: 25px;
-  padding: 10px 50px 10px 0; /* Espaço na direita para a seta não cobrir o último link */
   font-size: 12px;
   font-weight: 600;
   text-transform: uppercase;
@@ -109,13 +111,14 @@ header {
   overflow-x: auto;
   white-space: nowrap;
   scroll-behavior: smooth;
-  scrollbar-width: none; /* Firefox */
+  scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
   width: 100%;
+  padding: 10px 0;
 }
 
 .main-nav::-webkit-scrollbar {
-  display: none; /* Chrome, Safari e Edge */
+  display: none;
 }
 
 .main-nav a {
@@ -126,7 +129,7 @@ header {
     color 0.2s ease,
     border-color 0.2s ease;
   border-bottom: 2px solid transparent;
-  flex-shrink: 0; /* Impede que os nomes dos links dobrem ou encolham */
+  flex-shrink: 0;
   white-space: nowrap;
 }
 
@@ -173,23 +176,29 @@ header {
     width: 100%;
   }
 
-  /* No celular, o container do menu ocupa toda a largura */
   .scroll-wrapper {
     width: 100%;
     margin-top: 10px;
   }
 
+  /* Exibe a seta apenas no Celular */
   .scroll-btn-overlay {
-    width: 40px;
+    display: flex;
+    width: 50px;
+    padding-right: 6px;
   }
 
   .scroll-btn-overlay svg {
-    width: 16px;
-    height: 16px;
+    width: 18px !important;
+    height: 18px !important;
+    min-width: 18px !important;
+    min-height: 18px !important;
   }
 
+  /* No celular alinha do início para permitir a rolagem */
   .main-nav {
+    justify-content: flex-start;
     gap: 15px;
-    padding: 8px 40px 8px 0;
+    padding: 8px 45px 8px 10px;
   }
 }

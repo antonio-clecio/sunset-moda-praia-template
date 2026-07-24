@@ -14,46 +14,55 @@
 /* --- CATEGORIAS EM CÍRCULO (STORIES COM SETAS) --- */
 .stories-scroll-wrapper {
   position: relative;
+  display: flex;
+  justify-content: center;
   width: 100%;
   margin: 25px 0 35px 0;
 }
 
-/* Seta Minimalista com Degradê (Estilo PlayStation/Referência) */
-.stories-scroll-wrapper .scroll-btn.right {
+/* Seta Minimalista com Degradê (Oculta por padrão no Desktop) */
+.stories-scroll-wrapper .scroll-btn.right,
+.stories-scroll-wrapper .scroll-btn-overlay {
+  display: none; /* No desktop não exibe a seta */
   position: absolute;
   right: 0;
   top: 0;
   bottom: 0;
-  width: 50px;
+  width: 60px;
   background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #ffffff 75%);
-  border: none;
-  border-radius: 0;
-  box-shadow: none;
-  display: flex;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
   align-items: center;
   justify-content: flex-end;
-  padding-right: 5px;
+  padding-right: 4px;
   cursor: pointer;
   z-index: 10;
   color: #111111;
-  font-size: 16px;
   transition: color 0.2s ease, transform 0.2s ease;
 }
 
-.stories-scroll-wrapper .scroll-btn.right:hover {
+.stories-scroll-wrapper .scroll-btn.right:hover,
+.stories-scroll-wrapper .scroll-btn-overlay:hover {
   color: #179e9f;
   transform: translateX(2px);
 }
 
-/* Container Rolável dos Círculos */
+.stories-scroll-wrapper .scroll-btn-overlay svg {
+  display: block;
+  width: 26px;
+  height: 26px;
+}
+
+/* Container Rolável dos Círculos (Centralizado no Desktop) */
 .categories-circle-container {
   display: flex;
   align-items: flex-start;
-  justify-content: flex-start;
+  justify-content: center; /* Centraliza os stories no Desktop */
   flex-wrap: nowrap !important;
   gap: 30px;
   overflow-x: auto;
-  padding: 10px 60px 10px 5px; /* Espaço extra na direita para o gradiente da seta */
+  padding: 10px 0;
   scroll-behavior: smooth;
   scrollbar-width: none; /* Firefox */
   -webkit-overflow-scrolling: touch;
@@ -103,13 +112,25 @@
   white-space: nowrap;
 }
 
-/* --- SETA OVERLAY COM GRADIENTE FADE (SEM BORDAS/CAIXAS) --- */
+/* 🔴 COLE ESTE BLOCO AQUI 👇 */
+.category-circle-item.active .circle-img-wrapper {
+  outline: 2.5px solid #179e9f; /* Cor de destaque (roxa da sua marca) */
+  border-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(62, 0, 124, 0.25);
+}
+
+.category-circle-item.active span {
+  color: #179e9f; /* Mesma cor para destacar o texto */
+  font-weight: 700;
+}
+
+/* --- SETA OVERLAY COM GRADIENTE FADE --- */
 .scroll-btn-overlay {
   position: absolute;
   right: 0;
   top: 0;
   bottom: 0;
-  width: 70px; /* Extensão do gradiente sobre o conteúdo */
+  width: 70px;
   background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #ffffff 75%);
   border: none !important;
   outline: none !important;
@@ -482,16 +503,27 @@
   /* Stories no Celular */
   .stories-scroll-wrapper {
     margin: 15px 0 25px 0;
-    gap: 6px;
   }
 
-  .stories-scroll-wrapper .scroll-btn.right {
-    width: 35px;
-    font-size: 13px;
+  /* Reexibe a seta/overlay apenas no Celular */
+  .stories-scroll-wrapper .scroll-btn.right,
+  .stories-scroll-wrapper .scroll-btn-overlay {
+    display: flex;
+    width: 50px;
+    padding-right: 6px;
+  }
+
+  .stories-scroll-wrapper .scroll-btn-overlay svg {
+    width: 26px !important;
+    height: 26px !important;
+    min-width: 26px !important;
+    min-height: 26px !important;
   }
 
   .categories-circle-container {
+    justify-content: flex-start; /* Alinha à esquerda no celular para permitir a rolagem */
     gap: 18px;
+    padding: 10px 45px 10px 10px;
   }
 
   .circle-img-wrapper {
