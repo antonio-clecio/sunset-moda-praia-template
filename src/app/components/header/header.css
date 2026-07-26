@@ -82,7 +82,9 @@ header {
   cursor: pointer;
   z-index: 10;
   color: #111111;
-  transition: color 0.2s ease, transform 0.2s ease;
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
 }
 
 .scroll-btn-overlay:hover {
@@ -201,4 +203,19 @@ header {
     gap: 15px;
     padding: 8px 45px 8px 10px;
   }
+}
+
+.top-bar {
+  background-color: #d98a93;
+  color: #fbf0eb;
+  text-align: center;
+  padding: 8px 16px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  width: 100%;
+}
+
+.top-bar span {
+  display: inline-block;
 }

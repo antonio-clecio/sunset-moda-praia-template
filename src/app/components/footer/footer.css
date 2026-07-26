@@ -1,64 +1,124 @@
-/* Rodapé Preto */
+/* Rodapé Escuro Estilo Moda Praia */
 footer {
-  background-color: #000000;
-  color: #ffffff;
-  padding: 50px 0 20px;
+  background-color: #1f1a1a; /* 🟡 Alterado: tom café/grafite escuro */
+  color: #d1c7bc;            /* 🟡 Alterado: cor de texto bege suave */
+  padding: 50px 0 24px;
 }
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr; /* 🟡 Ajustado a proporção da 1ª coluna */
   gap: 30px;
   margin-bottom: 40px;
 }
 
+/* 🟢 NOVO: Estilo do Logo no Rodapé */
+.footer-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #f2ece4;
+  line-height: 1.1;
+  margin-bottom: 12px;
+}
+
+.footer-logo span {
+  display: block;
+  font-size: 0.65rem;
+  letter-spacing: 2px;
+  font-family: sans-serif;
+  font-weight: 400;
+  color: #a89d91;
+  margin-top: 3px;
+}
+
 .footer-col h4 {
-  font-size: 14px;
+  font-size: 12px;           /* 🟡 Ajustado tamanho */
   margin-bottom: 20px;
-  font-weight: 700;
-  color: #fff;
+  font-weight: 600;
+  color: #d1c7bc;            /* 🟡 Cor mais suave */
+  text-transform: uppercase; /* 🟢 NOVO: Caixas altas */
+  letter-spacing: 2px;       /* 🟢 NOVO: Espaçamento entre letras */
 }
 
 .footer-col p {
-  font-size: 12px;
-  color: #ccc;
+  font-size: 13px;
+  color: #a89d91;            /* 🟡 Tom bege suave */
   line-height: 1.6;
   margin-bottom: 10px;
 }
 
 .footer-col a {
-  font-size: 12px;
-  color: #ccc;
+  font-size: 13px;
+  color: #a89d91;            /* 🟡 Tom bege suave */
   display: block;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
+  text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 .footer-col a:hover {
-  color: #fff;
-  text-decoration: underline;
+  color: #ffffff;            /* Destaque branco ao passar o mouse */
+  text-decoration: none;     /* Removido o sublinhado para ficar mais limpo */
 }
 
+/* 🟡 ALTERADO: Ícones Sociais Circulares */
 .social-icons {
   display: flex;
-  gap: 15px;
+  gap: 10px;
+}
+
+.social-icons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  background-color: #2d2626; /* Fundo do círculo escuro */
+  border-radius: 50%;        /* Faz o círculo perfeito */
+  color: #f2ece4;
+  margin-bottom: 0;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.social-icons a:hover {
+  background-color: #3d3333;
+  color: #ffffff;
+  transform: translateY(-2px);
 }
 
 .social-icons i {
-  font-size: 20px;
-  color: #fff;
+  font-size: 16px;
 }
 
+/* 🟡 ALTERADO: Rodapé Inferior Alinhado nas Extremidades */
 .footer-bottom {
-  text-align: center;
-  border-top: 1px solid #333;
-  padding-top: 20px;
-  font-size: 14px;
-  font-weight: bold;
-  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #2e2828; /* Linha de divisão sutil */
+  padding-top: 24px;
+  font-size: 12px;
+  font-weight: normal;           /* Retirado o bold */
+  color: #8c8073;
 }
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 15px;
+}
+
+/* 🟢 NOVO: Responsividade para Celulares */
+@media (max-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1fr;  /* Fica em 1 coluna no celular */
+    gap: 30px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
 }
