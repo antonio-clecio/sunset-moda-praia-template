@@ -1,0 +1,111 @@
+.contact-section {
+  background-color: #d88a8e; /* Tom rosa queimado suave idêntico ao da imagem */
+  color: #ffffff;
+  padding: 60px 0 50px;
+  text-align: center;
+}
+
+/* Cabeçalho */
+.contact-section .title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.4rem;
+  font-weight: 400;
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
+}
+
+.contact-section .subtitle {
+  font-size: 0.95rem;
+  margin-bottom: 28px;
+  opacity: 0.95;
+  font-weight: 300;
+}
+
+/* Botão WhatsApp */
+.whatsapp-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #ffffff;
+  color: #d88a8e;
+  padding: 12px 32px;
+  border-radius: 50px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  margin-bottom: 48px;
+}
+
+.whatsapp-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+.whatsapp-btn i {
+  font-size: 1.2rem;
+}
+
+/* Grid de Informações */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  max-width: 900px;
+  margin: 0 auto 40px;
+  text-align: center;
+}
+
+.info-item h4 {
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+
+.info-item p, 
+.info-item a {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: #ffffff;
+  text-decoration: none;
+  margin: 0;
+  font-weight: 300;
+}
+
+.info-item a {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* Container do Mapa */
+.map-wrapper {
+  max-width: 850px;
+  margin: 0 auto;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.map-wrapper iframe {
+  display: block;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .contact-section {
+    padding: 40px 15px;
+  }
+
+  .contact-section .title {
+    font-size: 1.8rem;
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
