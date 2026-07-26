@@ -2,12 +2,7 @@
   <header>
     <div class="header-grid">
       <div class="search-box">
-        <input
-          type="text"
-          placeholder="O que você procura?"
-          [value]="searchTerm"
-          (input)="onSearch($event)"
-        />
+        <input type="text" placeholder="O que você procura?" [value]="searchTerm" (input)="onSearch($event)" />
         <i class="fas fa-search"></i>
       </div>
       <div class="logo">
@@ -20,79 +15,49 @@
     <!-- NAVBAR COM SETA GRADIENTE OVERLAY -->
     <div class="scroll-wrapper nav-wrapper">
       <nav class="main-nav" #navBar>
-        <a
-          [routerLink]="['/']"
-          [queryParams]="{ category: 'todos' }"
-          [class.active]="selectedCategory === 'todos'"
-        >
+        <a [routerLink]="['/']" [queryParams]="{ category: 'todos' }" [class.active]="selectedCategory === 'todos'">
           Todos
         </a>
 
-        <a
-          [routerLink]="['/']"
-          [queryParams]="{ category: 'biquini' }"
-          [class.active]="selectedCategory === 'biquini'"
-        >
+        <a [routerLink]="['/']" [queryParams]="{ category: 'biquini' }" [class.active]="selectedCategory === 'biquini'">
           Biquini
         </a>
 
-        <a
-          [routerLink]="['/']"
-          [queryParams]="{ category: 'maio' }"
-          [class.active]="selectedCategory === 'maio'"
-        >
+        <a [routerLink]="['/']" [queryParams]="{ category: 'maio' }" [class.active]="selectedCategory === 'maio'">
           Maiô
         </a>
 
-        <a
-          [routerLink]="['/']"
-          [queryParams]="{ category: 'saida' }"
-          [class.active]="selectedCategory === 'saida'"
-        >
+        <a [routerLink]="['/']" [queryParams]="{ category: 'saida' }" [class.active]="selectedCategory === 'saida'">
           Saída de Praia
         </a>
 
-        <a
-          [routerLink]="['/']"
-          [queryParams]="{ category: 'conjunto' }"
-          [class.active]="selectedCategory === 'conjunto'"
-        >
+        <a [routerLink]="['/']" [queryParams]="{ category: 'conjunto' }"
+          [class.active]="selectedCategory === 'conjunto'">
           Conjunto Fitness
         </a>
 
-        <a
-          [routerLink]="['/']"
-          [queryParams]="{ category: 'macacao' }"
-          [class.active]="selectedCategory === 'macacao'"
-        >
+        <a [routerLink]="['/']" [queryParams]="{ category: 'macacao' }" [class.active]="selectedCategory === 'macacao'">
           Macacão
         </a>
 
-        <a
-          [routerLink]="['/']"
-          [queryParams]="{ category: 'jaqueta' }"
-          [class.active]="selectedCategory === 'jaqueta'"
-        >
+        <a [routerLink]="['/']" [queryParams]="{ category: 'jaqueta' }" [class.active]="selectedCategory === 'jaqueta'">
           Jaqueta
         </a>
 
-        <a
-          [routerLink]="['/']"
-          [queryParams]="{ category: 'blusa' }"
-          [class.active]="selectedCategory === 'blusa'"
-        >
+        <a [routerLink]="['/']" [queryParams]="{ category: 'blusa' }" [class.active]="selectedCategory === 'blusa'">
           Blusa
+        </a>
+
+        <a [routerLink]="['/']" [queryParams]="{ category: 'calca' }" [class.active]="selectedCategory === 'calca'">
+          Calça
         </a>
       </nav>
 
       <!-- Botão Seta Overlay com SVG e Gradiente -->
-      <button 
-        type="button" 
-        class="scroll-btn-overlay" 
-        (click)="navBar.scrollBy({ left: 150, behavior: 'smooth' })"
-        aria-label="Rolar menu"
-      >
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <button type="button" class="scroll-btn-overlay" (click)="navBar.scrollBy({ left: 150, behavior: 'smooth' })"
+        aria-label="Rolar menu">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round">
           <polyline points="9 18 15 12 9 6"></polyline>
         </svg>
       </button>

@@ -16,12 +16,7 @@ export class ProductService {
         'https://l4ml87oywalsvkda.public.blob.vercel-storage.com/biquini-thalia-2.webp',
       ],
       category: 'biquini',
-      description: `O biquíni perfeito para quem ama elegância e conforto!
-
-        Modelo vibrante que é a cara do verão, esse modelo vai conquistar você!
-
-        ✔️ Possui bojo, garantindo mais sustentação e valorizando o busto.
-        ✔️ Calcinha hot pant, que modela o corpo e proporciona muito conforto.`,
+      description: `O biquíni perfeito para quem ama elegância e conforto! Modelo vibrante que é a cara do verão, esse modelo vai conquistar você!`,
     },
     {
       id: 2,
@@ -33,11 +28,7 @@ export class ProductService {
         'https://l4ml87oywalsvkda.public.blob.vercel-storage.com/saida-de-praia-sereia3.webp',
       ],
       category: 'saida',
-      description: `🖤 Elegância, leveza e sofisticação em uma única peça!
-
-        A saída de praia longa em tule é perfeita para compor produções estilosas sem abrir mão do conforto.
-
-        Um modelo que valoriza o look e deixa qualquer produção ainda mais elegante. ✨`,
+      description: `A saída de praia longa em tule é perfeita para compor produções estilosas sem abrir mão do conforto. Um modelo que valoriza o look e deixa qualquer produção ainda mais elegante.`,
     },
     {
       id: 3,
@@ -48,11 +39,7 @@ export class ProductService {
         'https://l4ml87oywalsvkda.public.blob.vercel-storage.com/biquini-lana-2.webp',
       ],
       category: 'biquini',
-      description: `Esse aqui tá um verdadeiro sonho!
-
-        Além da modelagem perfeita, ele possui alça removível, trazendo mais versatilidade para você usar do seu jeito ✨
-
-        Sem dúvidas, uma peça indispensável para esse verão ☀️`,
+      description: `Além da modelagem perfeita, ele possui alça removível, trazendo mais versatilidade para você usar do seu jeito.`,
     },
     {
       id: 4,
@@ -64,11 +51,7 @@ export class ProductService {
         'https://l4ml87oywalsvkda.public.blob.vercel-storage.com/biquini-pluz-size3.webp',
       ],
       category: 'biquini',
-      description: `Elegância e conforto para valorizar suas curvas!
-
-        Com bojo que garante sustentação e segurança. O top traz um lindo detalhe de argola que adiciona charme à peça, combinando perfeitamente com a calcinha hot pant, que também possui o mesmo detalhe sofisticado.
-
-        Perfeito para quem busca estilo, conforto e muita confiança na praia ou piscina 🖤`,
+      description: `Com bojo que garante sustentação e segurança. O top traz um lindo detalhe de argola que adiciona charme à peça, combinando perfeitamente com a calcinha hot pant, que também possui o mesmo detalhe sofisticado.`,
     },
     {
       id: 5,
@@ -80,11 +63,7 @@ export class ProductService {
         'https://l4ml87oywalsvkda.public.blob.vercel-storage.com/maio-fechado-na-frente3.webp',
       ],
       category: 'maio',
-      description: `Elegância e sensualidade na medida certa!
-
-        Maiô fechado na frente, com um lindo detalhe no centro dos seios que traz um charme especial e sofisticado à peça. Nas costas, possui modelo fio duplo com uma leve abertura, garantindo um toque moderno e super feminino.
-
-        Perfeito para quem quer arrasar com estilo, seja na piscina ou na praia 💜`,
+      description: `Com um lindo detalhe no centro dos seios que traz um charme especial e sofisticado à peça. Nas costas, possui modelo fio duplo com uma leve abertura, garantindo um toque moderno e super feminino.`,
     },
     {
       id: 6,
@@ -96,14 +75,7 @@ export class ProductService {
         'https://l4ml87oywalsvkda.public.blob.vercel-storage.com/maio-cavado-com-recortes3.webp',
       ],
       category: 'maio',
-      description: `Maiô Cavado com Recortes!
-
-       Um modelo poderoso para quem ama um visual marcante e cheio de estilo! 🖤
-
-        • Maiô 100% forrado, garantindo zero transparência
-        • Modelo cavado, que valoriza e alonga a silhueta
-
-        Ideal para arrasar na piscina ou na praia com muito estilo e confiança! 🌊`,
+      description: `Um modelo poderoso para quem ama um visual marcante e cheio de estilo. Ideal para arrasar na piscina ou na praia com muito estilo e confiança.`,
     },
     {
       id: 7,
@@ -115,11 +87,7 @@ export class ProductService {
         'https://l4ml87oywalsvkda.public.blob.vercel-storage.com/biquini-regulagem3.webp',
       ],
       category: 'biquini',
-      description: `Esse biquíni é perfeito para quem ama um visual leve e sofisticado, valorizando a silhueta com muito conforto.
-      
-      ✔️ Não possui bojo, garantindo um caimento mais natural.
-      ✔️ Calcinha com regulagem nas laterais.
-      ✔️ Modelo versátil e confortável.`,
+      description: `Esse biquíni é perfeito para quem ama um visual leve e sofisticado, valorizando a silhueta com muito conforto.`,
     },
     {
       id: 8,
@@ -130,11 +98,7 @@ export class ProductService {
         'https://l4ml87oywalsvkda.public.blob.vercel-storage.com/biquini-lis2.webp',
       ],
       category: 'biquini',
-      description: `Esse aqui é de tirar o fôlego!
-      
-        O Modelo Perfeito existe e nós podemos provar!
-        
-        Com modelagem impecável e detalhes dourados luxuosos, ele é a definição de poder e elegância.`,
+      description: `O Modelo Perfeito existe e nós podemos provar. Com modelagem impecável e detalhes dourados luxuosos, ele é a definição de poder e elegância.`,
     },
     {
       id: 9,
@@ -146,14 +110,7 @@ export class ProductService {
         'https://l4ml87oywalsvkda.public.blob.vercel-storage.com/jaqueta-fitness3.webp',
       ],
       category: 'jaqueta',
-      description: `A jaqueta fitness que une conforto, estilo e performance!
-      
-        Perfeita para te acompanhar nos treinos e também nas produções do dia a dia.
-        
-        ✔️ Confortável e elegante
-        ✔️ Modelagem que veste super bem
-        ✔️ Ideal para treinos e looks casuais
-        ✔️ Tecido de alta qualidade`,
+      description: `A jaqueta fitness que une conforto, estilo e performance. Perfeita para te acompanhar nos treinos e também nas produções do dia a dia.`,
     },
     {
       id: 10,
@@ -165,14 +122,7 @@ export class ProductService {
         'https://l4ml87oywalsvkda.public.blob.vercel-storage.com/macacao-canelado3.webp',
       ],
       category: 'macacao',
-      description: `O macacão que une conforto, estilo e praticidade!
-      
-        Confeccionado em tecido canelado, ele se ajusta perfeitamente ao corpo, valorizando a silhueta e garantindo muito conforto para treinar ou montar um look casual cheio de personalidade.
-        
-        ✔️ Tecido canelado
-        ✔️ Super confortável
-        ✔️ Ótimo caimento
-        ✔️ Perfeito para o dia a dia e treinos`,
+      description: `Confeccionado em tecido canelado, ele se ajusta perfeitamente ao corpo, valorizando a silhueta e garantindo muito conforto para treinar ou montar um look casual cheio de personalidade.`,
     },
     {
       id: 11,
@@ -184,9 +134,7 @@ export class ProductService {
         'https://l4ml87oywalsvkda.public.blob.vercel-storage.com/conjunto-canelado-bicolor3.webp',
       ],
       category: 'conjunto',
-      description: `Conforto e estilo em cada detalhe!
-      
-        Esse conjunto canelado com acabamento impecável e top de zíper é a definição de versatilidade e elegância.`,
+      description: `Esse conjunto canelado com acabamento impecável e top de zíper é a definição de versatilidade e elegância.`,
     },
     {
       id: 12,
@@ -197,11 +145,7 @@ export class ProductService {
         'https://l4ml87oywalsvkda.public.blob.vercel-storage.com/blusa-tule2.jpg',
       ],
       category: 'blusa',
-      description: `Versátil, estilosa e super tendência!
-      
-        A blusa de tule é aquela peça coringa que transforma qualquer produção em segundos.
-        
-        Perfeita para usar como terceira peça!`,
+      description: `A blusa de tule é aquela peça coringa que transforma qualquer produção em segundos. Perfeita para usar como terceira peça!`,
     },
     {
       id: 13,
@@ -212,11 +156,7 @@ export class ProductService {
         'https://l4ml87oywalsvkda.public.blob.vercel-storage.com/conjunto-bicolor2.jpg',
       ],
       category: 'conjunto',
-      description: `Conforto, estilo e sustentação em uma peça só!
-      
-        Nosso conjunto bicolor possui bojo, oferecendo mais segurança e valorizando ainda mais o corpo.
-        
-        Modelagem que veste super bem, tecido confortável e aquele caimento perfeito para treinar ou montar looks estilosos no dia a dia.`,
+      description: `Nosso conjunto bicolor possui bojo, oferecendo mais segurança e valorizando ainda mais o corpo. Modelagem que veste super bem, tecido confortável e aquele caimento perfeito para treinar ou montar looks estilosos no dia a dia.`,
     },
     {
       id: 14,
@@ -227,11 +167,7 @@ export class ProductService {
         'https://l4ml87oywalsvkda.public.blob.vercel-storage.com/conjunto-bicolor4.webp',
       ],
       category: 'conjunto',
-      description: `Elegância e conforto em um só look!
-      
-        Nosso conjunto conta com um lindo cropped de um ombro só, trazendo ainda mais charme e sofisticação para a produção.
-        
-        A calça e o cropped possuem detalhes bicolor, uma tendência que está super em alta e deixa a peça ainda mais moderna e estilosa. 😍`,
+      description: `Nosso conjunto conta com um lindo cropped de um ombro só, trazendo ainda mais charme e sofisticação para a produção. A calça e o cropped possuem detalhes bicolor, uma tendência que está super em alta e deixa a peça ainda mais moderna e estilosa.`,
     },
     {
       id: 15,
@@ -242,11 +178,7 @@ export class ProductService {
         'https://l4ml87oywalsvkda.public.blob.vercel-storage.com/conjunto-lis2.webp',
       ],
       category: 'conjunto',
-      description: `Conforto, estilo e caimento perfeito em uma única peça!
-        
-        O short possui bolsos nas laterais, trazendo mais praticidade para o dia a dia.
-        
-        O cropped conta com bojo e uma linda abertura nas costas, deixando o look ainda mais moderno. Um conjunto que veste super bem e valoriza o corpo com muito conforto.`,
+      description: `O short possui bolsos nas laterais, trazendo mais praticidade para o dia a dia. O cropped conta com bojo e uma linda abertura nas costas, deixando o look ainda mais moderno. Um conjunto que veste super bem e valoriza o corpo com muito conforto.`,
     },
     {
       id: 16,
@@ -257,11 +189,20 @@ export class ProductService {
         'https://l4ml87oywalsvkda.public.blob.vercel-storage.com/conjunto-bicolor6.webp',
       ],
       category: 'conjunto',
-      description: `Elegância e conforto em um só look!
-      
-        Nosso conjunto conta com um lindo cropped de um ombro só, trazendo ainda mais charme e sofisticação para a produção.
-        
-        O short e o cropped possuem detalhes bicolor, uma tendência que está super em alta e deixa a peça ainda mais moderna e estilosa. 😍`,
+      description: `Nosso conjunto conta com um lindo cropped de um ombro só, trazendo ainda mais charme e sofisticação para a produção. O short e o cropped possuem detalhes bicolor, uma tendência que está super em alta e deixa a peça ainda mais moderna e estilosa.`,
+    },
+    {
+      id: 17,
+      title: 'Calça',
+      price: 'R$ 89,99',
+      images: [
+        'https://l4ml87oywalsvkda.public.blob.vercel-storage.com/calca-canelada1.webp',
+        'https://l4ml87oywalsvkda.public.blob.vercel-storage.com/calca-canelada2.webp',
+        'https://l4ml87oywalsvkda.public.blob.vercel-storage.com/calca-canelada3.webp',
+      ],
+      category: 'calca',
+      description: `Nossa calça legging canelada valoriza o corpo e garante sustentação na medida certa. Ideal para treinar ou montar looks estilosos no dia a dia.
+`,
     },
   ];
 
