@@ -103,12 +103,6 @@ footer {
   color: #8c8073;
 }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 15px;
-}
-
 /* 🟢 NOVO: Responsividade para Celulares */
 @media (max-width: 768px) {
   .footer-grid {

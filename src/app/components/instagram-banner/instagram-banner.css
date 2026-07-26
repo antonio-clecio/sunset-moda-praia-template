@@ -1,0 +1,80 @@
+.insta-banner {
+  background-color: #d88a8e; /* Rosa queimado suave */
+  padding: 34px 0;
+  color: #ffffff;
+  width: 100%;
+}
+
+.insta-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Lado Esquerdo: Ícone + Texto */
+.insta-info {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.insta-icon {
+  font-size: 2.2rem;
+  color: #ffffff;
+}
+
+.insta-text .subtitle {
+  display: block;
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  opacity: 0.9;
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+
+.insta-text .title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.35rem;
+  font-weight: 400;
+  margin: 0;
+  color: #ffffff;
+}
+
+/* Lado Direito: Botão Pill */
+.insta-btn {
+  background-color: #ffffff;
+  color: #d88a8e;
+  padding: 10px 24px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  white-space: nowrap;
+}
+
+.insta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsividade para celulares */
+@media (max-width: 768px) {
+  .insta-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 16px;
+  }
+
+  .insta-info {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .insta-btn {
+    width: 100%;
+    max-width: 250px;
+  }
+}

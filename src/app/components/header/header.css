@@ -145,11 +145,7 @@ header {
   border-bottom: 2px solid #179e9f;
 }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 15px;
-}
+
 
 /* --- RESPONSIVIDADE PARA CELULARES (HEADER) --- */
 @media (max-width: 768px) {
