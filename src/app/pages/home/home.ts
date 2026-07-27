@@ -3,11 +3,16 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Product } from '../../models/product';
 import { ProductService } from '../../service/product.service';
+// IMPORTANTE: Importe o seu componente de Hero Banner
+import { HeroBannerComponent } from '../../components/hero-banner/hero-banner';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule],
+  imports: [
+    CommonModule,
+    HeroBannerComponent, // <-- Adicionado aqui para o <app-hero-banner> funcionar no HTML
+  ],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
@@ -28,7 +33,7 @@ export class Home implements OnInit {
   selectedCategory: string = 'todos';
   searchTerm: string = '';
 
-  // 🔴 NOVO: Estado de seleção exclusivo visual para os Stories
+  // Estado de seleção exclusivo visual para os Stories
   selectedStoryCategory: string = '';
   private isStoryClick: boolean = false; // Flag para identificar a origem do clique
 
@@ -42,8 +47,7 @@ export class Home implements OnInit {
       this.searchTerm = params['search'] || '';
       this.visibleCount = 8; // Reseta a paginação ao mudar filtro
 
-      // 🔴 NOVO: Se a mudança na URL NÃO veio de um clique no Story (ex: veio do Header),
-      // limpamos o destaque visual do Story
+      // Se a mudança na URL NÃO veio de um clique no Story, limpamos o destaque visual
       if (!this.isStoryClick) {
         this.selectedStoryCategory = '';
       }
@@ -53,7 +57,7 @@ export class Home implements OnInit {
     });
   }
 
-  // 🔴 ATUALIZADO: Método chamado ao clicar em um Story
+  // Método chamado ao clicar em um Story
   selectCategory(categorySlug: string): void {
     this.isStoryClick = true; // Avisa que o clique veio do Story
 
@@ -65,8 +69,8 @@ export class Home implements OnInit {
 
     this.router.navigate([], {
       relativeTo: this.route,
-      queryParams: { category: targetCategory, search: null }, // Remove o termo de busca da url
-      queryParamsHandling: 'merge', // Mantém a busca textual caso exista
+      queryParams: { category: targetCategory, search: null }, // Reseta o termo de busca textual ao filtrar por categoria
+      queryParamsHandling: 'merge',
     });
   }
 

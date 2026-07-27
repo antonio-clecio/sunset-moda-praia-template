@@ -1,156 +1,97 @@
+<!-- BANNER CARROSSEL HERO -->
+<app-hero-banner></app-hero-banner>
 <div class="container">
-  <!-- Banners -->
-  <section class="hero-banner">
-    <img
-      src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=400&q=80"
-      alt="Coleção Vibe Brasileira"
-    />
-  </section>
-
   <!-- CATEGORIAS EM CÍRCULO COM SETA GRADIENTE -->
   <div class="stories-scroll-wrapper">
     <section class="categories-circle-container" #storiesList>
       <!-- BIQUINIS -->
-      <div
-        class="category-circle-item"
+      <div class="category-circle-item"
         [class.active]="selectedStoryCategory === 'biquini' || selectedStoryCategory === 'biquinis'"
-        (click)="selectCategory('biquini')"
-      >
+        (click)="selectCategory('biquini')">
         <div class="circle-img-wrapper">
-          <img
-            src="https://l4ml87oywalsvkda.public.blob.vercel-storage.com/biquini-fita-brasil1.webp"
-            alt="Biquinis"
-          />
+          <img src="https://l4ml87oywalsvkda.public.blob.vercel-storage.com/biquini-fita-brasil1.webp" alt="Biquinis" />
         </div>
         <span>Biquinis</span>
       </div>
 
       <!-- MAIÔS -->
-      <div
-        class="category-circle-item"
+      <div class="category-circle-item"
         [class.active]="selectedStoryCategory === 'maio' || selectedStoryCategory === 'maios'"
-        (click)="selectCategory('maio')"
-      >
+        (click)="selectCategory('maio')">
         <div class="circle-img-wrapper">
-          <img
-            src="https://l4ml87oywalsvkda.public.blob.vercel-storage.com/maio-mel-maia1.webp"
-            alt="Maiôs"
-          />
+          <img src="https://l4ml87oywalsvkda.public.blob.vercel-storage.com/maio-mel-maia1.webp" alt="Maiôs" />
         </div>
         <span>Maiôs</span>
       </div>
 
       <!-- SAÍDAS DE PRAIA -->
-      <div
-        class="category-circle-item"
-        [class.active]="
+      <div class="category-circle-item" [class.active]="
           selectedStoryCategory === 'saida' || selectedStoryCategory === 'saida-de-praia'
-        "
-        (click)="selectCategory('saida')"
-      >
+        " (click)="selectCategory('saida')">
         <div class="circle-img-wrapper">
-          <img
-            src="https://l4ml87oywalsvkda.public.blob.vercel-storage.com/saida-de-praia-longa.webp"
-            alt="Saídas de Praia"
-          />
+          <img src="https://l4ml87oywalsvkda.public.blob.vercel-storage.com/saida-de-praia-longa.webp"
+            alt="Saídas de Praia" />
         </div>
         <span>Saídas de Praia</span>
       </div>
 
       <!-- CONJUNTOS FITNESS -->
-      <div
-        class="category-circle-item"
-        [class.active]="
+      <div class="category-circle-item" [class.active]="
           selectedStoryCategory === 'conjunto' || selectedStoryCategory === 'conjunto-fitness'
-        "
-        (click)="selectCategory('conjunto')"
-      >
+        " (click)="selectCategory('conjunto')">
         <div class="circle-img-wrapper">
-          <img
-            src="https://l4ml87oywalsvkda.public.blob.vercel-storage.com/conjunto-bicolor5.webp"
-            alt="Conjutos Fitness"
-          />
+          <img src="https://l4ml87oywalsvkda.public.blob.vercel-storage.com/conjunto-bicolor5.webp"
+            alt="Conjutos Fitness" />
         </div>
         <span>Conjutos Fitness</span>
       </div>
 
       <!-- MACACÕES -->
-      <div
-        class="category-circle-item"
+      <div class="category-circle-item"
         [class.active]="selectedStoryCategory === 'macacao' || selectedStoryCategory === 'macacoes'"
-        (click)="selectCategory('macacao')"
-      >
+        (click)="selectCategory('macacao')">
         <div class="circle-img-wrapper">
-          <img
-            src="https://l4ml87oywalsvkda.public.blob.vercel-storage.com/macacao-canelado1.webp"
-          />
+          <img src="https://l4ml87oywalsvkda.public.blob.vercel-storage.com/macacao-canelado1.webp" />
         </div>
         <span>Macacões</span>
       </div>
 
       <!-- JAQUETAS -->
-      <div
-        class="category-circle-item"
+      <div class="category-circle-item"
         [class.active]="selectedStoryCategory === 'jaqueta' || selectedStoryCategory === 'jaquetas'"
-        (click)="selectCategory('jaqueta')"
-      >
+        (click)="selectCategory('jaqueta')">
         <div class="circle-img-wrapper">
-          <img
-            src="https://l4ml87oywalsvkda.public.blob.vercel-storage.com/jaqueta-fitness2.webp"
-            alt="Jaquetas"
-          />
+          <img src="https://l4ml87oywalsvkda.public.blob.vercel-storage.com/jaqueta-fitness2.webp" alt="Jaquetas" />
         </div>
         <span>Jaquetas</span>
       </div>
 
       <!-- BLUSAS -->
-      <div
-        class="category-circle-item"
+      <div class="category-circle-item"
         [class.active]="selectedStoryCategory === 'blusa' || selectedStoryCategory === 'blusas'"
-        (click)="selectCategory('blusa')"
-      >
+        (click)="selectCategory('blusa')">
         <div class="circle-img-wrapper">
-          <img
-            src="https://l4ml87oywalsvkda.public.blob.vercel-storage.com/blusa-tule2.jpg"
-            alt="Blusas"
-          />
+          <img src="https://l4ml87oywalsvkda.public.blob.vercel-storage.com/blusa-tule2.jpg" alt="Blusas" />
         </div>
         <span>Blusas</span>
       </div>
 
       <!-- CALÇAS -->
-      <div
-        class="category-circle-item"
+      <div class="category-circle-item"
         [class.active]="selectedStoryCategory === 'calca' || selectedStoryCategory === 'calcas'"
-        (click)="selectCategory('calca')"
-      >
+        (click)="selectCategory('calca')">
         <div class="circle-img-wrapper">
-          <img
-            src="https://l4ml87oywalsvkda.public.blob.vercel-storage.com/calca-canelada1.webp"
-            alt="Calças"
-          />
+          <img src="https://l4ml87oywalsvkda.public.blob.vercel-storage.com/calca-canelada1.webp" alt="Calças" />
         </div>
         <span>Calças</span>
       </div>
     </section>
 
     <!-- Botão de Seta com Gradiente Overlay (SVG limpo) -->
-    <button
-      type="button"
-      class="scroll-btn-overlay"
-      (click)="storiesList.scrollBy({ left: 220, behavior: 'smooth' })"
-      aria-label="Rolar categorias"
-    >
-      <svg
-        width="26"
-        height="26"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      >
+    <button type="button" class="scroll-btn-overlay" (click)="storiesList.scrollBy({ left: 220, behavior: 'smooth' })"
+      aria-label="Rolar categorias">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+        stroke-linecap="round" stroke-linejoin="round">
         <polyline points="9 18 15 12 9 6"></polyline>
       </svg>
     </button>
@@ -159,83 +100,74 @@
   <!-- Grade de Produtos -->
   <main class="product-grid">
     @for (product of displayedProducts; track product.id) {
-      <div class="product-card">
-        <img [src]="product.images[0]" [alt]="product.title" class="product-img" />
-        <div class="product-info">
-          <div class="product-title">{{ product.title }}</div>
-          <div class="product-price">{{ product.price }}</div>
-          <button (click)="openModal(product)" class="btn-purple">Ver Detalhes</button>
-        </div>
+    <div class="product-card">
+      <img [src]="product.images[0]" [alt]="product.title" class="product-img" />
+      <div class="product-info">
+        <div class="product-title">{{ product.title }}</div>
+        <div class="product-price">{{ product.price }}</div>
+        <button (click)="openModal(product)" class="btn-purple">Ver Detalhes</button>
       </div>
+    </div>
     } @empty {
-      <p>Nenhum produto encontrado nesta categoria.</p>
+    <p>Nenhum produto encontrado nesta categoria.</p>
     }
   </main>
 
   <!-- MODAL DE DETALHES DO PRODUTO -->
   @if (selectedProduct) {
-    <div class="modal-overlay" (click)="closeModal()">
-      <div class="modal-card" (click)="$event.stopPropagation()">
-        <button class="close-btn" (click)="closeModal()">&times;</button>
+  <div class="modal-overlay" (click)="closeModal()">
+    <div class="modal-card" (click)="$event.stopPropagation()">
+      <button class="close-btn" (click)="closeModal()">&times;</button>
 
-        <div class="modal-body">
-          <div class="modal-gallery-container">
-            <!-- Imagem Principal Grande -->
-            <div class="modal-main-image">
-              <img
-                [src]="selectedProduct.images[currentModalImageIndex]"
-                [alt]="selectedProduct.title"
-              />
-            </div>
+      <div class="modal-body">
+        <div class="modal-gallery-container">
+          <!-- Imagem Principal Grande -->
+          <div class="modal-main-image">
+            <img [src]="selectedProduct.images[currentModalImageIndex]" [alt]="selectedProduct.title" />
+          </div>
 
-            <!-- Fileira de Miniaturas (Thumbnails) -->
-            <div class="modal-thumbnails">
-              @for (imgUrl of selectedProduct.images; track $index) {
-                <img
-                  [src]="imgUrl"
-                  [alt]="'Miniatura ' + ($index + 1)"
-                  class="modal-thumb-img"
-                  [class.active]="$index === currentModalImageIndex"
-                  (click)="setModalImage($index)"
-                />
-              }
+          <!-- Fileira de Miniaturas (Thumbnails) -->
+          <div class="modal-thumbnails">
+            @for (imgUrl of selectedProduct.images; track $index) {
+            <img [src]="imgUrl" [alt]="'Miniatura ' + ($index + 1)" class="modal-thumb-img"
+              [class.active]="$index === currentModalImageIndex" (click)="setModalImage($index)" />
+            }
+          </div>
+        </div>
+
+        <div class="modal-details">
+          <span class="modal-badge">{{ selectedProduct.category | uppercase }}</span>
+          <h2>{{ selectedProduct.title }}</h2>
+          <p class="modal-price">{{ selectedProduct.price }}</p>
+
+          <p class="modal-description">
+            {{
+            selectedProduct.description ||
+            'Produto confeccionado com tecido de alta qualidade, garantindo conforto e excelente caimento.'
+            }}
+          </p>
+
+          <div class="modal-sizes">
+            <span>Tamanhos:</span>
+            <div class="size-tags">
+              <span class="tag">P</span>
+              <span class="tag">M</span>
+              <span class="tag">G</span>
+              <span class="tag">GG</span>
             </div>
           </div>
 
-          <div class="modal-details">
-            <span class="modal-badge">{{ selectedProduct.category | uppercase }}</span>
-            <h2>{{ selectedProduct.title }}</h2>
-            <p class="modal-price">{{ selectedProduct.price }}</p>
-
-            <p class="modal-description">
-              {{
-                selectedProduct.description ||
-                  'Produto confeccionado com tecido de alta qualidade, garantindo conforto e excelente caimento.'
-              }}
-            </p>
-
-            <div class="modal-sizes">
-              <span>Tamanhos:</span>
-              <div class="size-tags">
-                <span class="tag">P</span>
-                <span class="tag">M</span>
-                <span class="tag">G</span>
-                <span class="tag">GG</span>
-              </div>
-            </div>
-
-            <a [href]="getWhatsAppLink(selectedProduct)" target="_blank" class="btn-whatsapp">
-              <i class="fab fa-whatsapp"></i> Comprar via WhatsApp
-            </a>
-          </div>
+          <a [href]="getWhatsAppLink(selectedProduct)" target="_blank" class="btn-whatsapp">
+            <i class="fab fa-whatsapp"></i> Comprar via WhatsApp
+          </a>
         </div>
       </div>
     </div>
+  </div>
   }
 
-  @if (visibleCount < filteredProducts.length) {
-    <div class="load-more-container">
-      <button (click)="loadMore()" class="btn-load-more">Ver mais produtos</button>
-    </div>
-  }
+  @if (visibleCount < filteredProducts.length) { <div class="load-more-container">
+    <button (click)="loadMore()" class="btn-load-more">Ver mais produtos</button>
+</div>
+}
 </div>

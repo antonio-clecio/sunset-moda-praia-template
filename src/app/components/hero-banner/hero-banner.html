@@ -1,1 +1,77 @@
-<p>hero-banner works!</p>
+<section class="hero-carousel" (mouseenter)="stopAutoPlay()" (mouseleave)="startAutoPlay()">
+  <!-- Container dos Slides -->
+  <div class="carousel-slides" [style.transform]="'translateX(-' + (currentSlide * 100) + '%)'">
+    @for (slide of slides; track $index) {
+      <div class="slide-item">
+        <!-- Imagem de Fundo com Overlay -->
+        <div class="slide-bg" [style.background-image]="'url(' + slide.imageUrl + ')'"></div>
+        
+        <!-- Conteúdo Editorial do Banner -->
+        <div class="slide-content">
+          @if (slide.subtitle) {
+            <span class="slide-subtitle">{{ slide.subtitle }}</span>
+          }
+          
+          <h1 class="slide-title">
+            {{ slide.titlePart1 }} <br />
+            <span class="highlight-font">{{ slide.titleHighlight }}</span>
+          </h1>
+          
+          @if (slide.description) {
+            <p class="slide-description">{{ slide.description }}</p>
+          }
+          
+          <div class="slide-actions">
+            @if (slide.primaryBtnText) {
+              <a [href]="slide.primaryBtnLink" class="btn-primary-slide">
+                {{ slide.primaryBtnText }}
+              </a>
+            }
+            @if (slide.secondaryBtnText) {
+              <a [href]="slide.secondaryBtnLink" class="btn-secondary-slide">
+                {{ slide.secondaryBtnText }}
+              </a>
+            }
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+
+  <!-- Seta Anterior -->
+  <button 
+    type="button" 
+    class="carousel-arrow prev" 
+    (click)="prevSlide()" 
+    aria-label="Slide anterior"
+  >
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <polyline points="15 18 9 12 15 6"></polyline>
+    </svg>
+  </button>
+
+  <!-- Seta Próximo -->
+  <button 
+    type="button" 
+    class="carousel-arrow next" 
+    (click)="nextSlide()" 
+    aria-label="Próximo slide"
+  >
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </button>
+
+  <!-- Indicadores inferiores (Dots) -->
+  <div class="carousel-dots">
+    @for (slide of slides; track $index) {
+      <button 
+        type="button" 
+        class="dot" 
+        [class.active]="$index === currentSlide" 
+        (click)="goToSlide($index)"
+        [attr.aria-label]="'Ir para o slide ' + ($index + 1)"
+      ></button>
+    }
+  </div>
+</section>

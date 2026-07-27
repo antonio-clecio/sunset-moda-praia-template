@@ -1,16 +1,3 @@
-/* --- BANNERS (HERO) --- */
-.hero-banner {
-  margin-bottom: 20px;
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-.hero-banner img {
-  width: 100%;
-  display: block;
-  object-fit: cover;
-}
-
 /* --- CATEGORIAS EM CÍRCULO (STORIES COM SETAS) --- */
 .stories-scroll-wrapper {
   position: relative;
@@ -22,13 +9,14 @@
 
 /* Seta Minimalista com Degradê (Oculta por padrão no Desktop) */
 .stories-scroll-wrapper .scroll-btn.right,
-.stories-scroll-wrapper .scroll-btn-overlay {
+.stories-scroll-wrapper .scroll-btn-overlay,
+.scroll-btn-overlay {
   display: none; /* No desktop não exibe a seta */
   position: absolute;
   right: 0;
   top: 0;
   bottom: 0;
-  width: 60px;
+  width: 70px;
   background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #ffffff 75%);
   border: none !important;
   outline: none !important;
@@ -39,16 +27,20 @@
   cursor: pointer;
   z-index: 10;
   color: #111111;
-  transition: color 0.2s ease, transform 0.2s ease;
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
 }
 
 .stories-scroll-wrapper .scroll-btn.right:hover,
-.stories-scroll-wrapper .scroll-btn-overlay:hover {
+.stories-scroll-wrapper .scroll-btn-overlay:hover,
+.scroll-btn-overlay:hover {
   color: #179e9f;
   transform: translateX(2px);
 }
 
-.stories-scroll-wrapper .scroll-btn-overlay svg {
+.stories-scroll-wrapper .scroll-btn-overlay svg,
+.scroll-btn-overlay svg {
   display: block;
   width: 26px;
   height: 26px;
@@ -112,46 +104,16 @@
   white-space: nowrap;
 }
 
-/* 🔴 COLE ESTE BLOCO AQUI 👇 */
+/* Destaque Visual do Círculo Selecionado */
 .category-circle-item.active .circle-img-wrapper {
-  outline: 2.5px solid #179e9f; /* Cor de destaque (roxa da sua marca) */
+  outline: 2.5px solid #179e9f;
   border-color: #ffffff;
   box-shadow: 0 4px 12px rgba(62, 0, 124, 0.25);
 }
 
 .category-circle-item.active span {
-  color: #179e9f; /* Mesma cor para destacar o texto */
-  font-weight: 700;
-}
-
-/* --- SETA OVERLAY COM GRADIENTE FADE --- */
-.scroll-btn-overlay {
-  position: absolute;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  width: 70px;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #ffffff 75%);
-  border: none !important;
-  outline: none !important;
-  box-shadow: none !important;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  padding-right: 4px;
-  cursor: pointer;
-  z-index: 10;
-  color: #111111;
-  transition: color 0.2s ease, transform 0.2s ease;
-}
-
-.scroll-btn-overlay:hover {
   color: #179e9f;
-  transform: translateX(2px);
-}
-
-.scroll-btn-overlay svg {
-  display: block;
+  font-weight: 700;
 }
 
 /* --- GRADE DE PRODUTOS (DESKTOP: 4 COLUNAS) --- */
@@ -229,7 +191,7 @@
   background-color: #2a0054;
 }
 
-/* Botão Ver Todos */
+/* Botão Carregar Mais */
 .load-more-container {
   text-align: center;
   margin-bottom: 60px;
@@ -301,13 +263,6 @@
   grid-template-columns: 1fr 1fr;
   gap: 1.5rem;
   padding: 1.5rem;
-}
-
-.modal-image-container img {
-  width: 100%;
-  height: 380px;
-  object-fit: cover;
-  border-radius: 12px;
 }
 
 .modal-details {
@@ -426,7 +381,9 @@
   border-radius: 8px;
   cursor: pointer;
   border: 2px solid transparent;
-  transition: transform 0.2s, border-color 0.2s;
+  transition:
+    transform 0.2s,
+    border-color 0.2s;
   opacity: 0.6;
 }
 
@@ -462,9 +419,8 @@
   }
 }
 
-/* --- RESPONSIVIDADE PARA CELULARES (MÓVEL) --- */
+/* --- RESPONSIVIDADE PARA CELULARES (MOBILE) --- */
 @media (max-width: 768px) {
-  /* Grade de Produtos: Máximo 2 por linha */
   .product-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
@@ -494,20 +450,20 @@
     width: 100%;
   }
 
-  /* Stories no Celular */
   .stories-scroll-wrapper {
     margin: 15px 0 25px 0;
   }
 
-  /* Reexibe a seta/overlay apenas no Celular */
   .stories-scroll-wrapper .scroll-btn.right,
-  .stories-scroll-wrapper .scroll-btn-overlay {
+  .stories-scroll-wrapper .scroll-btn-overlay,
+  .scroll-btn-overlay {
     display: flex;
     width: 50px;
     padding-right: 6px;
   }
 
-  .stories-scroll-wrapper .scroll-btn-overlay svg {
+  .stories-scroll-wrapper .scroll-btn-overlay svg,
+  .scroll-btn-overlay svg {
     width: 26px !important;
     height: 26px !important;
     min-width: 26px !important;
@@ -515,7 +471,7 @@
   }
 
   .categories-circle-container {
-    justify-content: flex-start; /* Alinha à esquerda no celular para permitir a rolagem */
+    justify-content: flex-start;
     gap: 18px;
     padding: 10px 45px 10px 10px;
   }
@@ -529,14 +485,12 @@
     font-size: 12px;
   }
 
-  /* Modal no celular */
   .modal-body {
     grid-template-columns: 1fr;
     padding: 1rem;
   }
 
-  .modal-main-image img,
-  .modal-image-container img {
+  .modal-main-image img {
     height: 280px;
   }
 
