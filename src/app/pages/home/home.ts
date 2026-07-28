@@ -5,6 +5,7 @@ import { Product } from '../../models/product';
 import { ProductService } from '../../service/product.service';
 // IMPORTANTE: Importe o seu componente de Hero Banner
 import { HeroBannerComponent } from '../../components/hero-banner/hero-banner';
+import { InfoBar } from '../../components/info-bar/info-bar';
 
 @Component({
   selector: 'app-home',
@@ -12,6 +13,7 @@ import { HeroBannerComponent } from '../../components/hero-banner/hero-banner';
   imports: [
     CommonModule,
     HeroBannerComponent, // <-- Adicionado aqui para o <app-hero-banner> funcionar no HTML
+    InfoBar,
   ],
   templateUrl: './home.html',
   styleUrl: './home.css',

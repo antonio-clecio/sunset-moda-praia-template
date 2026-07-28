@@ -6,11 +6,12 @@ import { Contact } from './components/contact/contact';
 import { Faq } from './components/faq/faq';
 import { InstagramBanner } from './components/instagram-banner/instagram-banner';
 import { About } from './components/about/about';
+import { InfoBar } from './components/info-bar/info-bar';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, Header, Footer, Contact, Faq, InstagramBanner, About],
+  imports: [RouterOutlet, Header, Footer, Contact, Faq, InstagramBanner, About, InfoBar],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
