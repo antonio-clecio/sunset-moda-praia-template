@@ -1,64 +1,65 @@
-import { Component, OnInit, OnDestroy, inject, PLATFORM_ID } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  OnDestroy,
+  inject,
+  PLATFORM_ID,
+  ChangeDetectorRef,
+} from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { Router, RouterModule } from '@angular/router';
 
-export interface Slide {
+export interface BannerSlide {
   imageUrl: string;
-  titlePart1: string;
-  titleHighlight: string;
-  subtitle?: string;
-  description?: string;
-  primaryBtnText?: string;
-  primaryBtnLink?: string;
-  secondaryBtnText?: string;
-  secondaryBtnLink?: string;
+  altText: string;
+  categorySlug: string;
 }
 
 @Component({
   selector: 'app-hero-banner',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './hero-banner.html',
   styleUrl: './hero-banner.css',
 })
 export class HeroBannerComponent implements OnInit, OnDestroy {
   private platformId = inject(PLATFORM_ID);
+  private router = inject(Router);
+  private cdr = inject(ChangeDetectorRef); // Garante a atualização de tela do Angular
 
   currentSlide = 0;
   private intervalId: any = null;
 
-  slides: Slide[] = [
+  slides: BannerSlide[] = [
     {
-      imageUrl:
-        'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=400&q=80',
-      subtitle: 'NOVA COLEÇÃO',
-      titlePart1: 'Sinta a Vibe do',
-      titleHighlight: 'Verão Brasileiro',
-      description: 'Modelagens exclusivas e estampas vibrantes para realçar seu brilho natural.',
-      primaryBtnText: 'Ver Coleção',
-      primaryBtnLink: '#',
-      secondaryBtnText: 'Lançamentos',
-      secondaryBtnLink: '#',
+      imageUrl: 'https://l4ml87oywalsvkda.public.blob.vercel-storage.com/banner-promocional-1.png',
+      altText: 'Saldão de Biquinis - Até 30% OFF',
+      categorySlug: 'biquini',
     },
     {
-      imageUrl:
-        'https://images.unsplash.com/photo-1519046904884-53103b34b206?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=400&q=80',
-      subtitle: 'OFERTA ESPECIAL',
-      titlePart1: 'Biquínis & Maiôs com',
-      titleHighlight: 'Até 30% OFF',
-      description:
-        'Aproveite descontos imperdíveis nas peças mais desejadas da estação por tempo limitado.',
-      primaryBtnText: 'Aproveitar Desconto',
-      primaryBtnLink: '#',
+      imageUrl: 'https://l4ml87oywalsvkda.public.blob.vercel-storage.com/banner-promocional-2.png',
+      altText: 'Moda Fitness Tendências',
+      categorySlug: 'conjunto',
     },
     {
-      imageUrl:
-        'https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=400&q=80',
-      subtitle: 'LOOKS COMPLETOS',
-      titlePart1: 'Saídas de Praia e',
-      titleHighlight: 'Acessórios Trend',
-      description: 'Combine suas peças favoritas com kimonos, cangas e chapéus elegantes.',
-      primaryBtnText: 'Comprar Agora',
-      primaryBtnLink: '#',
+      imageUrl: 'https://l4ml87oywalsvkda.public.blob.vercel-storage.com/banner-promocional-3.png',
+      altText: 'Festival de Maiôs - Até 70% OFF',
+      categorySlug: 'maio',
+    },
+    {
+      imageUrl: 'https://l4ml87oywalsvkda.public.blob.vercel-storage.com/banner-promocional-4.png',
+      altText: 'Saídas de Praia, Calças Telinha e mais',
+      categorySlug: 'saida',
+    },
+    {
+      imageUrl: 'https://l4ml87oywalsvkda.public.blob.vercel-storage.com/banner-promocional-5.png',
+      altText: 'Coleção de Verão',
+      categorySlug: 'todos',
+    },
+    {
+      imageUrl: 'https://l4ml87oywalsvkda.public.blob.vercel-storage.com/banner-promocional-6.png',
+      altText: 'Ofertas Especiais',
+      categorySlug: 'todos',
     },
   ];
 
@@ -70,8 +71,18 @@ export class HeroBannerComponent implements OnInit, OnDestroy {
     this.stopAutoPlay();
   }
 
+  // Navega aplicando o filtro de categoria na URL
+  onBannerClick(categorySlug: string): void {
+    if (!categorySlug) return;
+    this.router.navigate([], {
+      queryParams: { category: categorySlug },
+      queryParamsHandling: 'merge',
+    });
+  }
+
   startAutoPlay(): void {
-    if (isPlatformBrowser(this.platformId) && !this.intervalId) {
+    if (isPlatformBrowser(this.platformId)) {
+      this.stopAutoPlay(); // Garante que limpa temporizadores anteriores
       this.intervalId = setInterval(() => {
         this.nextSlide();
       }, 5000);
@@ -85,15 +96,38 @@ export class HeroBannerComponent implements OnInit, OnDestroy {
     }
   }
 
+  private restartAutoPlay(): void {
+    this.startAutoPlay();
+  }
+
   nextSlide(): void {
     this.currentSlide = (this.currentSlide + 1) % this.slides.length;
+    this.cdr.markForCheck(); // Notifica o Angular para atualizar o CSS na tela
   }
 
   prevSlide(): void {
     this.currentSlide = (this.currentSlide - 1 + this.slides.length) % this.slides.length;
+    this.cdr.markForCheck();
   }
 
   goToSlide(index: number): void {
     this.currentSlide = index;
+    this.cdr.markForCheck();
+  }
+
+  // Ações manuais do usuário (clique nas setas ou bolinhas)
+  onUserNext(): void {
+    this.nextSlide();
+    this.restartAutoPlay();
+  }
+
+  onUserPrev(): void {
+    this.prevSlide();
+    this.restartAutoPlay();
+  }
+
+  onUserGoTo(index: number): void {
+    this.goToSlide(index);
+    this.restartAutoPlay();
   }
 }
