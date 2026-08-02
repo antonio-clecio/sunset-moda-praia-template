@@ -10,7 +10,8 @@ import { Router, RouterLink, ActivatedRoute } from '@angular/router';
 })
 export class Header implements OnInit {
   selectedCategory: string = 'todos';
-  searchTerm: string = ''; // 👈 Guarda e sincroniza o texto do input
+  searchTerm: string = ''; // Guarda e sincroniza o texto do input
+  isMenuOpen: boolean = false; // Controle de abertura do menu mobile (gaveta lateral)
 
   constructor(
     private router: Router,
@@ -34,5 +35,14 @@ export class Header implements OnInit {
         category: value ? 'todos' : this.selectedCategory,
       },
     });
+  }
+
+  /* --- MÉTODOS DO MENU HAMBÚRGUER (MOBILE) --- */
+  toggleMenu(): void {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
+
+  closeMenu(): void {
+    this.isMenuOpen = false;
   }
 }

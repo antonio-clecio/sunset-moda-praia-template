@@ -3,12 +3,12 @@
   width: 100%;
 }
 
+/* === CONTAINER GERAL === */
 .info-bar {
   width: 100%;
   background-color: #ffffff;
-  border-top: 1px solid #f0ece9;
-  border-bottom: 1px solid #f0ece9;
-  padding: 16px 0;
+  padding: 28px 0; /* Espaçamento vertical generoso (Imagem 1) */
+  border-bottom: 1px solid #e8ecef; /* Linha de divisão inferior */
 }
 
 .info-container {
@@ -20,14 +20,15 @@
   padding: 0 16px;
 }
 
+/* === ESTILO DESKTOP (Imagem 1) === */
 .info-item {
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
-  padding: 0 12px;
-  border-right: 1px solid #e8e3df;
+  gap: 14px;
+  padding: 6px 16px;
+  border-right: 1px solid #e2e8f0; /* Divisória vertical sutil */
 }
 
 .info-item:last-child {
@@ -42,62 +43,72 @@
   flex-shrink: 0;
 }
 
+.info-icon svg {
+  width: 28px;
+  height: 28px;
+}
+
 .info-content {
   display: flex;
   flex-direction: column;
 }
 
 .info-title {
-  font-size: 0.78rem;
+  font-size: 0.8rem;
   font-weight: 700;
-  color: #2b2323;
+  color: #2a2221;
   letter-spacing: 0.3px;
   text-transform: uppercase;
   line-height: 1.2;
+  white-space: nowrap;
 }
 
 .info-subtitle {
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   color: #7d736f;
-  margin-top: 2px;
+  margin-top: 3px;
   line-height: 1.2;
 }
 
-/* Responsivo para celular/tablet: 2 por linha (Grid 2x2) */
+/* === VERSÃO MOBILE (Imagem 2) === */
 @media (max-width: 820px) {
+  .info-bar {
+    padding: 28px 0; /* Mantém o respiro confortável nas margens */
+  }
+
   .info-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    padding: 0 8px;
+    grid-template-columns: repeat(2, 1fr); /* Grid 2x2 */
+    gap: 32px 16px; /* Espaço amplo entre colunas e linhas */
+    padding: 0 16px;
   }
 
   .info-item {
-    border-right: none;
-    justify-content: flex-start;
-    padding: 10px 12px;
+    flex-direction: column; /* Coloca o ícone EM CIMA do texto */
+    align-items: center;
+    justify-content: center;
+    text-align: center; /* Centraliza os textos */
+    border-right: none !important; /* Remove divisórias verticais */
+    padding: 0;
+    gap: 10px; /* Distância entre o ícone e o título */
   }
 
-  /* Linha divisória vertical entre o item da esquerda e o da direita */
-  .info-item:nth-child(odd) {
-    border-right: 1px solid #e8e3df;
-  }
-
-  /* Linha divisória horizontal entre a primeira e a segunda linha */
-  .info-item:nth-child(1),
-  .info-item:nth-child(2) {
-    border-bottom: 1px solid #e8e3df;
+  .info-content {
+    align-items: center; /* Centraliza título e subtítulo */
   }
 
   .info-icon svg {
-    width: 22px;
-    height: 22px;
+    width: 32px; /* Ícone em destaque no topo */
+    height: 32px;
   }
 
   .info-title {
-    font-size: 0.7rem;
+    font-size: 0.75rem;
+    white-space: normal;
   }
 
   .info-subtitle {
-    font-size: 0.65rem;
+    font-size: 0.7rem;
+    margin-top: 4px;
   }
 }

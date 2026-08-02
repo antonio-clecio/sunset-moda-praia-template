@@ -1,69 +1,85 @@
+<!-- Barra rosa -->
 <div class="top-bar">
   <span>Entrega em todo o entorno · Seg–Sáb, 09h às 18h ♡</span>
 </div>
-<div class="container">
-  <header>
+
+<header>
+  <div class="container">
     <div class="header-grid">
+      <!-- Botão Hambúrguer (Oculto no Desktop, visível no Mobile) -->
+      <button class="hamburger-btn" (click)="toggleMenu()" aria-label="Abrir Menu">
+        <i class="fas" [class.fa-bars]="!isMenuOpen" [class.fa-times]="isMenuOpen"></i>
+      </button>
+
+      <!-- Busca (Esquerda no Desktop, linha de baixo no Mobile) -->
       <div class="search-box">
         <input type="text" placeholder="O que você procura?" [value]="searchTerm" (input)="onSearch($event)" />
         <i class="fas fa-search"></i>
       </div>
+
+      <!-- Logo (Centralizada) -->
       <div class="logo">
         Sol&Mar
         <span>MODA PRAIA</span>
       </div>
-      <div><!-- Espaço vazio à direita conforme referência --></div>
+
+      <!-- Espaço vazio à direita para equilibrar a Grid no Desktop -->
+      <div class="header-right-spacer"></div>
     </div>
 
-    <!-- NAVBAR COM SETA GRADIENTE OVERLAY -->
-    <div class="scroll-wrapper nav-wrapper">
-      <nav class="main-nav" #navBar>
-        <a [routerLink]="['/']" [queryParams]="{ category: 'todos' }" [class.active]="selectedCategory === 'todos'">
-          Todos
-        </a>
-
-        <a [routerLink]="['/']" [queryParams]="{ category: 'biquini' }" [class.active]="selectedCategory === 'biquini'">
-          Biquini
-        </a>
-
-        <a [routerLink]="['/']" [queryParams]="{ category: 'maio' }" [class.active]="selectedCategory === 'maio'">
-          Maiô
-        </a>
-
-        <a [routerLink]="['/']" [queryParams]="{ category: 'saida' }" [class.active]="selectedCategory === 'saida'">
-          Saída de Praia
-        </a>
-
+    <!-- NAVBAR DESKTOP -->
+    <div class="scroll-wrapper nav-wrapper desktop-nav">
+      <nav class="main-nav">
+        <a [routerLink]="['/']" [queryParams]="{ category: 'todos' }"
+          [class.active]="selectedCategory === 'todos'">Todos</a>
+        <a [routerLink]="['/']" [queryParams]="{ category: 'biquini' }"
+          [class.active]="selectedCategory === 'biquini'">Biquini</a>
+        <a [routerLink]="['/']" [queryParams]="{ category: 'maio' }"
+          [class.active]="selectedCategory === 'maio'">Maiô</a>
+        <a [routerLink]="['/']" [queryParams]="{ category: 'saida' }"
+          [class.active]="selectedCategory === 'saida'">Saída de Praia</a>
         <a [routerLink]="['/']" [queryParams]="{ category: 'conjunto' }"
-          [class.active]="selectedCategory === 'conjunto'">
-          Conjunto Fitness
-        </a>
-
-        <a [routerLink]="['/']" [queryParams]="{ category: 'macacao' }" [class.active]="selectedCategory === 'macacao'">
-          Macacão
-        </a>
-
-        <a [routerLink]="['/']" [queryParams]="{ category: 'jaqueta' }" [class.active]="selectedCategory === 'jaqueta'">
-          Jaqueta
-        </a>
-
-        <a [routerLink]="['/']" [queryParams]="{ category: 'blusa' }" [class.active]="selectedCategory === 'blusa'">
-          Blusa
-        </a>
-
-        <a [routerLink]="['/']" [queryParams]="{ category: 'calca' }" [class.active]="selectedCategory === 'calca'">
-          Calça
-        </a>
+          [class.active]="selectedCategory === 'conjunto'">Conjunto Fitness</a>
+        <a [routerLink]="['/']" [queryParams]="{ category: 'macacao' }"
+          [class.active]="selectedCategory === 'macacao'">Macacão</a>
+        <a [routerLink]="['/']" [queryParams]="{ category: 'jaqueta' }"
+          [class.active]="selectedCategory === 'jaqueta'">Jaqueta</a>
+        <a [routerLink]="['/']" [queryParams]="{ category: 'blusa' }"
+          [class.active]="selectedCategory === 'blusa'">Blusa</a>
+        <a [routerLink]="['/']" [queryParams]="{ category: 'calca' }"
+          [class.active]="selectedCategory === 'calca'">Calça</a>
       </nav>
-
-      <!-- Botão Seta Overlay com SVG e Gradiente -->
-      <button type="button" class="scroll-btn-overlay" (click)="navBar.scrollBy({ left: 150, behavior: 'smooth' })"
-        aria-label="Rolar menu">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-          stroke-linecap="round" stroke-linejoin="round">
-          <polyline points="9 18 15 12 9 6"></polyline>
-        </svg>
-      </button>
     </div>
-  </header>
-</div>
+  </div>
+</header>
+
+<!-- GAVETA LATERAL DO MENU MOBILE -->
+<div class="mobile-overlay" [class.open]="isMenuOpen" (click)="closeMenu()"></div>
+
+<aside class="mobile-drawer" [class.open]="isMenuOpen">
+  <div class="drawer-header">
+    <span>Categorias</span>
+    <button (click)="closeMenu()" class="close-drawer-btn">&times;</button>
+  </div>
+
+  <nav class="mobile-nav">
+    <a [routerLink]="['/']" [queryParams]="{ category: 'todos' }" [class.active]="selectedCategory === 'todos'"
+      (click)="closeMenu()">Todos</a>
+    <a [routerLink]="['/']" [queryParams]="{ category: 'biquini' }" [class.active]="selectedCategory === 'biquini'"
+      (click)="closeMenu()">Biquini</a>
+    <a [routerLink]="['/']" [queryParams]="{ category: 'maio' }" [class.active]="selectedCategory === 'maio'"
+      (click)="closeMenu()">Maiô</a>
+    <a [routerLink]="['/']" [queryParams]="{ category: 'saida' }" [class.active]="selectedCategory === 'saida'"
+      (click)="closeMenu()">Saída de Praia</a>
+    <a [routerLink]="['/']" [queryParams]="{ category: 'conjunto' }" [class.active]="selectedCategory === 'conjunto'"
+      (click)="closeMenu()">Conjunto Fitness</a>
+    <a [routerLink]="['/']" [queryParams]="{ category: 'macacao' }" [class.active]="selectedCategory === 'macacao'"
+      (click)="closeMenu()">Macacão</a>
+    <a [routerLink]="['/']" [queryParams]="{ category: 'jaqueta' }" [class.active]="selectedCategory === 'jaqueta'"
+      (click)="closeMenu()">Jaqueta</a>
+    <a [routerLink]="['/']" [queryParams]="{ category: 'blusa' }" [class.active]="selectedCategory === 'blusa'"
+      (click)="closeMenu()">Blusa</a>
+    <a [routerLink]="['/']" [queryParams]="{ category: 'calca' }" [class.active]="selectedCategory === 'calca'"
+      (click)="closeMenu()">Calça</a>
+  </nav>
+</aside>

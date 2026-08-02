@@ -1,17 +1,68 @@
-/* Cabeçalho Base (Desktop) */
-header {
-  padding: 30px 0 20px;
+/* ==========================================================================
+   1. ESTRUTURA GLOBAL E STICKY
+   ========================================================================== */
+:host {
+  display: block;
+  position: sticky;
+  top: -35px; /* Esconde a barra rosa ao rolar */
+  z-index: 1000;
+  width: 100%;
 }
 
+.top-bar {
+  background-color: #d98a93;
+  color: #fbf0eb;
+  text-align: center;
+  padding: 8px 16px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+header {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  padding: 16px 0 10px;
+}
+
+.container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   2. GRID DO HEADER (DESKTOP)
+   ========================================================================== */
 .header-grid {
   display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  grid-template-columns: 1fr auto 1fr; /* Col 1: Busca | Col 2: Logo | Col 3: Spacer */
   align-items: center;
+}
+
+/* Escondido no Desktop */
+.hamburger-btn {
+  display: none !important;
+  background: none;
+  border: none;
+  font-size: 22px;
+  color: #222;
+  cursor: pointer;
+  padding: 5px;
 }
 
 .search-box {
   position: relative;
   max-width: 250px;
+  width: 100%;
 }
 
 .search-box input {
@@ -21,6 +72,7 @@ header {
   border-radius: 4px;
   font-size: 13px;
   outline: none;
+  background-color: rgba(255, 255, 255, 0.8);
 }
 
 .search-box input::placeholder {
@@ -54,164 +106,170 @@ header {
   margin-top: -5px;
 }
 
-/* --- ENVOLTÓRIO CENTRALIZADO --- */
+.header-right-spacer {
+  display: block;
+}
+
+/* ==========================================================================
+   3. MENU DESKTOP
+   ========================================================================== */
 .scroll-wrapper {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
-  margin: 20px auto 0 auto;
+  margin-top: 28px;
 }
 
-/* --- SETA OVERLAY (Oculta no Desktop por padrão) --- */
-.scroll-btn-overlay {
-  display: none; /* No desktop não exibe a seta */
-  position: absolute;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  width: 60px;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #ffffff 75%);
-  border: none !important;
-  outline: none !important;
-  box-shadow: none !important;
-  align-items: center;
-  justify-content: flex-end;
-  padding-right: 4px;
-  cursor: pointer;
-  z-index: 10;
-  color: #111111;
-  transition:
-    color 0.2s ease,
-    transform 0.2s ease;
-}
-
-.scroll-btn-overlay:hover {
-  color: #179e9f;
-  transform: translateX(2px);
-}
-
-.scroll-btn-overlay svg {
-  display: block;
-  width: 26px;
-  height: 26px;
-}
-
-/* --- MENU PRINCIPAL (CENTRALIZADO NO DESKTOP) --- */
 .main-nav {
   display: flex;
   align-items: center;
-  justify-content: center; /* Centralização perfeita no Desktop */
-  flex-wrap: nowrap !important;
+  justify-content: center;
   gap: 25px;
   font-size: 12px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  color: #222;
-  overflow-x: auto;
-  white-space: nowrap;
-  scroll-behavior: smooth;
-  scrollbar-width: none;
-  -webkit-overflow-scrolling: touch;
-  width: 100%;
-  padding: 10px 0;
-}
-
-.main-nav::-webkit-scrollbar {
-  display: none;
 }
 
 .main-nav a {
   text-decoration: none;
   color: #222;
   padding-bottom: 4px;
-  transition:
-    color 0.2s ease,
-    border-color 0.2s ease;
   border-bottom: 2px solid transparent;
-  flex-shrink: 0;
-  white-space: nowrap;
+  transition: all 0.2s ease;
 }
 
-.main-nav a:hover {
-  color: #179e9f;
-}
-
+.main-nav a:hover,
 .main-nav a.active {
   color: #179e9f;
-  font-weight: 700;
   border-bottom: 2px solid #179e9f;
 }
 
+/* ==========================================================================
+   4. MENU GAVETA MOBILE (OFF-CANVAS DRAWER)
+   ========================================================================== */
+.mobile-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
 
+.mobile-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
 
-/* --- RESPONSIVIDADE PARA CELULARES (HEADER) --- */
+.mobile-drawer {
+  position: fixed;
+  top: 0;
+  left: -300px;
+  width: 280px;
+  height: 100vh;
+  background-color: #ffffff;
+  z-index: 2000;
+  box-shadow: 4px 0 15px rgba(0, 0, 0, 0.15);
+  transition: left 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.mobile-drawer.open {
+  left: 0;
+}
+
+.drawer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 20px;
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #eee;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.close-drawer-btn {
+  background: none;
+  border: none;
+  font-size: 26px;
+  color: #555;
+  cursor: pointer;
+}
+
+.mobile-nav {
+  display: flex;
+  flex-direction: column;
+  padding: 15px 0;
+  overflow-y: auto;
+}
+
+.mobile-nav a {
+  padding: 14px 20px;
+  text-decoration: none;
+  color: #333;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  border-bottom: 1px solid #f2f2f2;
+  transition: background 0.2s;
+}
+
+.mobile-nav a:hover,
+.mobile-nav a.active {
+  color: #179e9f;
+  background-color: #f7fdfd;
+  border-left: 4px solid #179e9f;
+}
+
+/* ==========================================================================
+   5. RESPONSIVIDADE MOBILE (MAX-WIDTH: 768px)
+   ========================================================================== */
 @media (max-width: 768px) {
   header {
-    padding: 15px 0 10px;
+    padding: 10px 0 12px;
   }
 
   .header-grid {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     align-items: center;
-    gap: 15px;
+    justify-content: space-between;
+    gap: 12px;
   }
 
-  .header-grid > div:last-child {
-    display: none;
-  }
-
-  .logo {
+  .hamburger-btn {
+    display: flex !important;
     order: 1;
   }
 
-  .search-box {
+  .logo {
     order: 2;
+    font-size: 28px;
+    margin: 0 auto;
+  }
+
+  .header-right-spacer {
+    order: 3;
+    width: 32px; /* Equilibra a largura do botão hambúrguer para a logo ficar no centro */
+  }
+
+  .search-box {
+    order: 4;
+    width: 100%;
     max-width: 100%;
-    width: 100%;
   }
 
-  .scroll-wrapper {
-    width: 100%;
-    margin-top: 10px;
+  .desktop-nav {
+    display: none !important;
   }
-
-  /* Exibe a seta apenas no Celular */
-  .scroll-btn-overlay {
-    display: flex;
-    width: 50px;
-    padding-right: 6px;
-  }
-
-  .scroll-btn-overlay svg {
-    width: 18px !important;
-    height: 18px !important;
-    min-width: 18px !important;
-    min-height: 18px !important;
-  }
-
-  /* No celular alinha do início para permitir a rolagem */
-  .main-nav {
-    justify-content: flex-start;
-    gap: 15px;
-    padding: 8px 45px 8px 10px;
-  }
-}
-
-.top-bar {
-  background-color: #d98a93;
-  color: #fbf0eb;
-  text-align: center;
-  padding: 8px 16px;
-  font-size: 0.85rem;
-  font-weight: 500;
-  letter-spacing: 0.5px;
-  width: 100%;
-}
-
-.top-bar span {
-  display: inline-block;
 }
