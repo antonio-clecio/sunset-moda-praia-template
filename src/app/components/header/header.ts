@@ -10,8 +10,8 @@ import { Router, RouterLink, ActivatedRoute } from '@angular/router';
 })
 export class Header implements OnInit {
   selectedCategory: string = 'todos';
-  searchTerm: string = ''; // Guarda e sincroniza o texto do input
-  isMenuOpen: boolean = false; // Controle de abertura do menu mobile (gaveta lateral)
+  searchTerm: string = '';
+  isMenuOpen: boolean = false;
 
   constructor(
     private router: Router,
@@ -19,7 +19,6 @@ export class Header implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // Escuta a URL: se a busca sumir da URL, limpa o campo de texto automaticamente
     this.route.queryParams.subscribe((params) => {
       this.selectedCategory = params['category'] || 'todos';
       this.searchTerm = params['search'] || '';
@@ -37,12 +36,38 @@ export class Header implements OnInit {
     });
   }
 
-  /* --- MÉTODOS DO MENU HAMBÚRGUER (MOBILE) --- */
   toggleMenu(): void {
     this.isMenuOpen = !this.isMenuOpen;
   }
 
   closeMenu(): void {
     this.isMenuOpen = false;
+  }
+
+  /* --- NOVO MÉTODOS DE NAVEGAÇÃO E SCROLL --- */
+  selectCategory(category: string): void {
+    // 1. Atualiza a URL
+    this.router.navigate([], {
+      queryParams: { category: category },
+    });
+
+    // 2. Fecha o menu mobile
+    this.closeMenu();
+
+    // 3. Rola com desconto do header sticky
+    setTimeout(() => {
+      const targetElement =
+        document.getElementById(category) || document.getElementById('produtos');
+      if (targetElement) {
+        const headerOffset = 140; // Altura aproximada do seu header sticky em pixels
+        const elementPosition = targetElement.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth',
+        });
+      }
+    }, 50);
   }
 }

@@ -1,6 +1,7 @@
 <!-- BANNER CARROSSEL HERO -->
 <app-hero-banner></app-hero-banner>
 <app-info-bar></app-info-bar>
+
 <div class="container">
   <!-- CATEGORIAS EM CÍRCULO COM SETA GRADIENTE -->
   <div class="stories-scroll-wrapper">
@@ -98,8 +99,8 @@
     </button>
   </div>
 
-  <!-- Grade de Produtos -->
-  <main class="product-grid">
+  <!-- 👇 ADICIONADO O ID "produtos" AQUI 👇 -->
+  <main id="produtos" class="product-grid">
     @for (product of displayedProducts; track product.id) {
     <div class="product-card">
       <img [src]="product.images[0]" [alt]="product.title" class="product-img" />

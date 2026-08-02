@@ -30,24 +30,15 @@
     <!-- NAVBAR DESKTOP -->
     <div class="scroll-wrapper nav-wrapper desktop-nav">
       <nav class="main-nav">
-        <a [routerLink]="['/']" [queryParams]="{ category: 'todos' }"
-          [class.active]="selectedCategory === 'todos'">Todos</a>
-        <a [routerLink]="['/']" [queryParams]="{ category: 'biquini' }"
-          [class.active]="selectedCategory === 'biquini'">Biquini</a>
-        <a [routerLink]="['/']" [queryParams]="{ category: 'maio' }"
-          [class.active]="selectedCategory === 'maio'">Maiô</a>
-        <a [routerLink]="['/']" [queryParams]="{ category: 'saida' }"
-          [class.active]="selectedCategory === 'saida'">Saída de Praia</a>
-        <a [routerLink]="['/']" [queryParams]="{ category: 'conjunto' }"
-          [class.active]="selectedCategory === 'conjunto'">Conjunto Fitness</a>
-        <a [routerLink]="['/']" [queryParams]="{ category: 'macacao' }"
-          [class.active]="selectedCategory === 'macacao'">Macacão</a>
-        <a [routerLink]="['/']" [queryParams]="{ category: 'jaqueta' }"
-          [class.active]="selectedCategory === 'jaqueta'">Jaqueta</a>
-        <a [routerLink]="['/']" [queryParams]="{ category: 'blusa' }"
-          [class.active]="selectedCategory === 'blusa'">Blusa</a>
-        <a [routerLink]="['/']" [queryParams]="{ category: 'calca' }"
-          [class.active]="selectedCategory === 'calca'">Calça</a>
+        <a (click)="selectCategory('todos')" [class.active]="selectedCategory === 'todos'">Todos</a>
+        <a (click)="selectCategory('biquini')" [class.active]="selectedCategory === 'biquini'">Biquini</a>
+        <a (click)="selectCategory('maio')" [class.active]="selectedCategory === 'maio'">Maiô</a>
+        <a (click)="selectCategory('saida')" [class.active]="selectedCategory === 'saida'">Saída de Praia</a>
+        <a (click)="selectCategory('conjunto')" [class.active]="selectedCategory === 'conjunto'">Conjunto Fitness</a>
+        <a (click)="selectCategory('macacao')" [class.active]="selectedCategory === 'macacao'">Macacão</a>
+        <a (click)="selectCategory('jaqueta')" [class.active]="selectedCategory === 'jaqueta'">Jaqueta</a>
+        <a (click)="selectCategory('blusa')" [class.active]="selectedCategory === 'blusa'">Blusa</a>
+        <a (click)="selectCategory('calca')" [class.active]="selectedCategory === 'calca'">Calça</a>
       </nav>
     </div>
   </div>
@@ -63,23 +54,14 @@
   </div>
 
   <nav class="mobile-nav">
-    <a [routerLink]="['/']" [queryParams]="{ category: 'todos' }" [class.active]="selectedCategory === 'todos'"
-      (click)="closeMenu()">Todos</a>
-    <a [routerLink]="['/']" [queryParams]="{ category: 'biquini' }" [class.active]="selectedCategory === 'biquini'"
-      (click)="closeMenu()">Biquini</a>
-    <a [routerLink]="['/']" [queryParams]="{ category: 'maio' }" [class.active]="selectedCategory === 'maio'"
-      (click)="closeMenu()">Maiô</a>
-    <a [routerLink]="['/']" [queryParams]="{ category: 'saida' }" [class.active]="selectedCategory === 'saida'"
-      (click)="closeMenu()">Saída de Praia</a>
-    <a [routerLink]="['/']" [queryParams]="{ category: 'conjunto' }" [class.active]="selectedCategory === 'conjunto'"
-      (click)="closeMenu()">Conjunto Fitness</a>
-    <a [routerLink]="['/']" [queryParams]="{ category: 'macacao' }" [class.active]="selectedCategory === 'macacao'"
-      (click)="closeMenu()">Macacão</a>
-    <a [routerLink]="['/']" [queryParams]="{ category: 'jaqueta' }" [class.active]="selectedCategory === 'jaqueta'"
-      (click)="closeMenu()">Jaqueta</a>
-    <a [routerLink]="['/']" [queryParams]="{ category: 'blusa' }" [class.active]="selectedCategory === 'blusa'"
-      (click)="closeMenu()">Blusa</a>
-    <a [routerLink]="['/']" [queryParams]="{ category: 'calca' }" [class.active]="selectedCategory === 'calca'"
-      (click)="closeMenu()">Calça</a>
+    <a (click)="selectCategory('todos')" [class.active]="selectedCategory === 'todos'">Todos</a>
+    <a (click)="selectCategory('biquini')" [class.active]="selectedCategory === 'biquini'">Biquini</a>
+    <a (click)="selectCategory('maio')" [class.active]="selectedCategory === 'maio'">Maiô</a>
+    <a (click)="selectCategory('saida')" [class.active]="selectedCategory === 'saida'">Saída de Praia</a>
+    <a (click)="selectCategory('conjunto')" [class.active]="selectedCategory === 'conjunto'">Conjunto Fitness</a>
+    <a (click)="selectCategory('macacao')" [class.active]="selectedCategory === 'macacao'">Macacão</a>
+    <a (click)="selectCategory('jaqueta')" [class.active]="selectedCategory === 'jaqueta'">Jaqueta</a>
+    <a (click)="selectCategory('blusa')" [class.active]="selectedCategory === 'blusa'">Blusa</a>
+    <a (click)="selectCategory('calca')" [class.active]="selectedCategory === 'calca'">Calça</a>
   </nav>
 </aside>

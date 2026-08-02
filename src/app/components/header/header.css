@@ -138,10 +138,14 @@ header {
   color: #222;
   padding-bottom: 4px;
   border-bottom: 2px solid transparent;
-  transition: all 0.2s ease;
+  transition: color 0.2s ease, border-color 0.2s ease;
+  cursor: pointer; /* 👈 Volta a mãozinha no mouse */
 }
 
-.main-nav a:hover,
+.main-nav a:hover {
+  color: #179e9f;
+}
+
 .main-nav a.active {
   color: #179e9f;
   border-bottom: 2px solid #179e9f;
@@ -221,10 +225,15 @@ header {
   font-weight: 600;
   text-transform: uppercase;
   border-bottom: 1px solid #f2f2f2;
-  transition: background 0.2s;
+  border-left: 4px solid transparent;
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer; /* 👈 Volta a mãozinha no mobile/desktop */
 }
 
-.mobile-nav a:hover,
+.mobile-nav a:hover {
+  color: #179e9f;
+}
+
 .mobile-nav a.active {
   color: #179e9f;
   background-color: #f7fdfd;
